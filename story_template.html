@@ -1,0 +1,1721 @@
+<title>The Fall of Thai Governments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+<style>
+/* Deliberately single-theme: a soft, cool white page, as requested. Every color is set explicitly. */
+:root {
+  --bg: #fbfcfd;
+  --panel: #f3f5f8;
+  --ink: #161a22;
+  --ink-2: #4f5866;
+  --ink-3: #7b8491;
+  --rule: #e4e8ee;
+  --enacted: #104281;
+  --merged: #3987e5;
+  --pending: #86b6ef;
+  --rejected: #9aa3af;
+  --fall: #e0572a;
+  --forced: #c3cad4;
+  --sans: "Schibsted Grotesk", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Newsreader", "Noto Sans Thai", Georgia, "Times New Roman", serif;
+  --thai: "Noto Sans Thai", "Schibsted Grotesk", system-ui, sans-serif;
+  --char: #0b0d10;
+  --charter: #7b3fb8;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); overflow-x: clip; }
+body { overflow-x: clip; margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--serif); font-size: 19px; line-height: 1.6; padding-inline: 20px; padding-block: 0 64px; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1000px; margin-inline: auto; }
+.prose { max-width: 640px; margin-inline: auto; }
+.prose p { margin: 0 0 1.1em; }
+.prose p strong { font-weight: 500; color: var(--ink); background: linear-gradient(transparent 62%, #dce9fa 62%); }
+h1, h2, h3, .label, .num, figcaption, .tip, table, .kicker, .legend { font-family: var(--sans); }
+h1, h2 { text-wrap: balance; letter-spacing: -0.02em; }
+.kicker { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.thai { font-family: var(--thai); }
+
+/* Hero */
+header.hero { padding-block: 72px 24px; }
+header.hero h1 { font-size: clamp(44px, 8.4vw, 92px); line-height: 0.98; font-weight: 800; margin: 18px 0 22px; max-width: 12ch; }
+header.hero h1 .soft { color: var(--ink-3); font-weight: 600; }
+.dek { font-size: clamp(20px, 2.4vw, 24px); line-height: 1.45; color: var(--ink-2); max-width: 36ch; margin: 0; }
+.byline { font-family: var(--sans); font-size: 14px; color: var(--ink-3); margin-top: 28px; display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* Figures */
+figure { margin: 40px 0 56px; }
+figure .chart { width: 100%; position: relative; }
+figcaption { font-size: 14px; color: var(--ink-3); line-height: 1.5; margin-top: 14px; max-width: 640px; }
+.fig-title { font-family: var(--sans); font-weight: 700; font-size: 18px; margin: 0 0 4px; letter-spacing: -0.01em; }
+.fig-sub { font-family: var(--sans); font-size: 15px; color: var(--ink-2); margin: 0 0 18px; }
+svg { display: block; overflow: visible; }
+svg text { font-family: var(--sans); fill: var(--ink-2); font-size: 12px; }
+svg .strong { fill: var(--ink); font-weight: 600; }
+svg .muted { fill: var(--ink-3); }
+.hit { cursor: default; }
+.hit:focus-visible { outline: 2px solid var(--merged); outline-offset: 2px; }
+
+/* Chapters */
+section.chapter { padding-top: 56px; border-top: 1px solid var(--rule); margin-top: 32px; }
+section.chapter h2 { font-size: clamp(30px, 4.6vw, 44px); line-height: 1.08; font-weight: 700; margin: 10px 0 28px; }
+
+/* Big numbers row */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 28px 32px; margin: 36px 0 12px; }
+.stat { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+.stat .label { align-self: start; }
+.stat .live { align-self: start; }
+.stat .num { font-size: clamp(40px, 5.6vw, 60px); font-weight: 700; line-height: 1; letter-spacing: -0.03em; }
+.stat .num small { font-size: 0.45em; font-weight: 600; color: var(--ink-3); letter-spacing: 0; margin-left: 4px; }
+.stat .label { font-size: 15px; color: var(--ink-2); margin-top: 8px; line-height: 1.4; max-width: 26ch; }
+.stat.alert .num { color: var(--fall); }
+
+.legend { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--ink-2); margin-bottom: 14px; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.sw { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+.sw.ring { background: var(--bg); border: 1.5px solid var(--rejected); }
+.sw.bar { border-radius: 2px; width: 14px; }
+
+/* Tooltip */
+.tip { position: fixed; z-index: 10; pointer-events: none; background: #ffffff; color: var(--ink); border: 1px solid var(--rule); box-shadow: 0 6px 24px rgba(22, 26, 34, 0.10); border-radius: 8px; padding: 10px 12px; font-size: 13px; line-height: 1.45; max-width: 300px; }
+.tip b { font-weight: 600; }
+.tip .t-thai { font-family: var(--thai); color: var(--ink-2); display: block; margin-top: 4px; }
+
+/* Data tables */
+details { font-family: var(--sans); font-size: 14px; margin-top: 14px; color: var(--ink-2); }
+summary { cursor: pointer; color: var(--ink-3); }
+summary:focus-visible { outline: 2px solid var(--merged); outline-offset: 2px; }
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; margin-top: 10px; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 6px 16px 6px 0; border-bottom: 1px solid var(--rule); }
+th { color: var(--ink-3); font-weight: 500; }
+td.r, th.r { text-align: right; }
+
+/* Glossary pull */
+.term { border-left: 2px solid var(--ink); padding: 4px 0 4px 18px; margin: 32px 0; font-family: var(--sans); }
+.term .w { font-size: 22px; font-weight: 700; }
+.term .w .thai { font-weight: 500; color: var(--ink-3); font-size: 18px; margin-left: 8px; }
+.term p { margin: 6px 0 0; color: var(--ink-2); font-size: 16px; line-height: 1.5; }
+
+.closing { background: var(--panel); border-radius: 14px; padding: 36px clamp(20px, 5vw, 48px); margin-top: 64px; }
+.closing h2 { margin-top: 0 !important; }
+.closing ol { font-family: var(--serif); padding-left: 1.2em; margin: 0; display: grid; gap: 14px; }
+.method { font-family: var(--sans); font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-top: 56px; }
+.method h3 { font-size: 15px; margin: 0 0 8px; color: var(--ink); }
+.method ul { padding-left: 1.1em; margin: 0 0 20px; }
+.method a { color: var(--enacted); }
+
+/* Prologue event timeline */
+.events { list-style: none; margin: 8px 0 0; padding: 0; position: relative; }
+.events::before { content: ""; position: absolute; left: 118px; top: 6px; bottom: 6px; width: 1px; background: var(--rule); }
+.events li { display: grid; grid-template-columns: 100px 1fr; gap: 0 36px; padding-block: 12px; position: relative; }
+.events li::before { content: ""; position: absolute; left: 113px; top: 19px; width: 11px; height: 11px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px var(--bg); }
+.events .date { font-family: var(--sans); font-size: 13px; color: var(--ink-3); padding-top: 3px; font-variant-numeric: tabular-nums; text-align: right; }
+.events .date b { display: block; font-size: 17px; color: var(--ink); font-weight: 700; }
+.events h4 { font-family: var(--sans); font-size: 17px; font-weight: 600; margin: 0 0 3px; letter-spacing: -0.01em; }
+.events p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; }
+.events .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; font-family: var(--sans); font-size: 12px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 2px 9px 2px 7px; border-radius: 99px; background: var(--panel); color: var(--ink-2); }
+.chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+.chip.data { background: transparent; border: 1px solid var(--rule); color: var(--ink-3); }
+.events li.era { padding-block: 22px 6px; }
+.events li.era::before { display: none; }
+.events li.era span { grid-column: 2; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.chart.scroll { overflow-x: auto; }
+.chart.scroll svg { min-width: 760px; }
+details .events { margin-top: 12px; }
+.subhead { font-family: var(--sans); font-size: 24px; font-weight: 700; letter-spacing: -0.015em; margin: 48px 0 14px; }
+section.chapter.first { border-top: 0; padding-top: 24px; }
+@media (max-width: 560px) {
+  .events::before { left: 5px; }
+  .events li { grid-template-columns: 1fr; padding-left: 26px; }
+  .events li::before { left: 0; top: 16px; }
+  .events .date { text-align: left; padding: 0 0 4px; }
+  .events .date b { display: inline; margin-right: 6px; font-size: 15px; }
+  .events li.era span { grid-column: 1; }
+}
+/* Live lines, computed from the reader's clock */
+.live { font-family: var(--sans); font-size: 14px; line-height: 1.45; color: var(--ink-2); margin: 10px 0 0; max-width: 30ch; }
+.live::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--fall); margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 0 0 rgba(224, 87, 42, 0.5); }
+.live b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+header.hero .hero-live { max-width: none; margin-top: 14px; }
+@media (prefers-reduced-motion: no-preference) {
+  .live::before { animation: pulse 2.4s ease-out infinite; }
+  @keyframes pulse { 70% { box-shadow: 0 0 0 7px rgba(224, 87, 42, 0); } 100% { box-shadow: 0 0 0 0 rgba(224, 87, 42, 0); } }
+}
+.thesis { font-family: var(--serif); font-size: clamp(20px, 2.3vw, 23px); line-height: 1.45; color: var(--ink); max-width: 40ch; margin: 28px 0 0; padding-left: 18px; border-left: 3px solid var(--fall); }
+.takeaway { font-family: var(--sans); font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.45; margin: 28px 0 8px; }
+.takeaway::before { content: "What this shows"; display: block; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--fall); margin-bottom: 6px; }
+.cards-title { margin-top: 48px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 14px 0 8px; }
+.card { background: var(--panel); border-radius: 12px; padding: 20px 22px; font-family: var(--sans); display: flex; flex-direction: column; gap: 8px; }
+.card h4 { margin: 0; font-size: 19px; letter-spacing: -0.01em; }
+.card p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.card p b { color: var(--ink); font-weight: 600; }
+.card .t-thai { font-family: var(--thai); font-size: 12.5px; color: var(--ink-3); margin-top: auto; padding-top: 6px; }
+.card .chips { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+.card .chip { background: var(--bg); }
+img.logo { display: inline-block; vertical-align: -4px; margin-right: 6px; object-fit: contain; }
+.tip img.logo { vertical-align: -7px; }
+/* Language: every text block exists in English and Thai; only the active one shows */
+html:not([data-lang="th"]) [lang="th"], html[data-lang="th"] [lang="en"] { display: none !important; }
+html[data-lang="th"] {
+  --serif: "IBM Plex Sans Thai", "Noto Sans Thai", system-ui, sans-serif;
+  --sans: "Schibsted Grotesk", "IBM Plex Sans Thai", "Noto Sans Thai", system-ui, sans-serif;
+  --thai: "IBM Plex Sans Thai", "Noto Sans Thai", system-ui, sans-serif;
+}
+html[data-lang="th"] body { font-size: 18px; line-height: 1.85; }
+html[data-lang="th"] header.hero h1 { font-size: clamp(40px, 7.4vw, 82px); line-height: 1.12; }
+html[data-lang="th"] section.chapter h2 { line-height: 1.3; }
+html[data-lang="th"] .kicker, html[data-lang="th"] .takeaway::before { letter-spacing: 0; }
+html[data-lang="th"] .takeaway::before { content: "สิ่งที่ข้อมูลบอกเรา"; }
+html[data-lang="th"] .stat .label, html[data-lang="th"] .live, html[data-lang="th"] figcaption { line-height: 1.6; }
+.lang-switch { position: fixed; z-index: 30; top: calc(env(safe-area-inset-top, 0px) + 12px); right: 12px; display: flex; padding: 3px; gap: 2px; background: rgba(251, 252, 253, 0.92); border: 1px solid var(--rule); border-radius: 99px; box-shadow: 0 4px 16px rgba(22, 26, 34, 0.08); backdrop-filter: blur(6px); }
+.lang-switch button { font: 600 13px var(--sans); color: var(--ink-2); background: transparent; border: 0; border-radius: 99px; padding: 6px 12px; cursor: pointer; min-width: 44px; }
+.lang-switch button[aria-pressed="true"] { background: var(--char); color: #ffffff; }
+.lang-switch button:focus-visible { outline: 2px solid var(--merged); outline-offset: 2px; }
+/* Rulebook */
+.rules { list-style: none; margin: 24px 0 8px; padding: 0; display: grid; gap: 10px; }
+.rules li { display: grid; grid-template-columns: 130px minmax(0, 1fr) 260px; gap: 16px 24px; align-items: start; padding: 18px 0; border-top: 1px solid var(--rule); font-family: var(--sans); }
+.rules .sec { font-weight: 700; font-size: 14px; color: #ffffff; background: var(--char); border-radius: 6px; padding: 5px 10px; justify-self: start; }
+.rules h4 { margin: 0 0 4px; font-size: 17px; }
+.rules p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.rules .effect { font-size: 14px; line-height: 1.45; color: var(--ink); text-decoration: none; border-left: 3px solid var(--fall); padding: 2px 0 2px 12px; }
+.rules .effect::after { content: " ↓"; color: var(--fall); }
+.rules .effect:hover { text-decoration: underline; }
+.rules .effect:focus-visible { outline: 2px solid var(--merged); outline-offset: 2px; }
+.rules .chip.data { font-size: 11px; margin-left: 4px; }
+.steps { list-style: none; margin: 8px 0 24px; padding: 0; font-family: var(--sans); }
+.steps li { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 4px 20px; align-items: start; padding: 14px 0; border-top: 1px solid var(--rule); }
+.steps .when { font-size: 13px; color: var(--ink-3); padding-top: 2px; font-variant-numeric: tabular-nums; }
+.steps h4 { margin: 0 0 3px; font-size: 16px; }
+.steps p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-2); max-width: 62ch; }
+.steps .out { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
+.steps .out.no { background: #fbe4dc; color: #9a3412; }
+.steps .out.yes { background: #dfe9f7; color: var(--enacted); }
+.steps .out.part { background: var(--panel); color: var(--ink-2); }
+@media (max-width: 720px) {
+  .rules li { grid-template-columns: 1fr; gap: 8px; }
+  .steps li { grid-template-columns: 1fr; }
+  .steps .out { justify-self: start; }
+}
+/* What you'll learn */
+.learn { padding-top: 40px; }
+.learn-head h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; margin: 8px 0 20px; }
+html[data-lang="th"] .learn-head h2 { line-height: 1.3; letter-spacing: 0; }
+.learn-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.lcard { grid-column: span 1; display: flex; flex-direction: column; gap: 8px; padding: 18px 18px 14px; background: #ffffff; border: 1px solid var(--rule); border-radius: 14px; color: var(--ink); text-decoration: none; font-family: var(--sans); position: relative; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.lcard.wide { grid-column: span 2; }
+.lcard:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(22, 26, 34, 0.08); border-color: #d4dae3; }
+.lcard:focus-visible { outline: 2px solid var(--merged); outline-offset: 3px; }
+.lcard .lk { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; gap: 8px; }
+html[data-lang="th"] .lcard .lk { letter-spacing: 0; }
+.lcard .lk b { font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.lcard .lnum { font-size: clamp(34px, 4vw, 44px); font-weight: 700; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.lcard .lnum small { font-size: .42em; font-weight: 600; color: var(--ink-3); letter-spacing: 0; margin-left: 4px; }
+.lcard.alert .lnum { color: var(--fall); }
+.lcard .ltxt { font-size: 14.5px; line-height: 1.45; color: var(--ink-2); margin: 0; }
+html[data-lang="th"] .lcard .ltxt { line-height: 1.6; }
+.lcard .lviz { margin-top: auto; padding-top: 8px; }
+.lcard .lviz svg text { font-size: 11px; }
+.lcard .lgo { font-size: 13px; font-weight: 600; color: var(--enacted); margin-top: 4px; }
+.lcard .lgo::after { content: " →"; transition: margin .2s; }
+.lcard:hover .lgo::after { margin-left: 4px; }
+.rulechips { display: flex; flex-wrap: wrap; gap: 6px; }
+.rulechips span { font-size: 12px; font-weight: 600; color: #ffffff; background: var(--char); border-radius: 6px; padding: 4px 9px; }
+@media (max-width: 900px) { .learn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .learn-grid { grid-template-columns: 1fr; } .lcard.wide { grid-column: span 1; } }
+/* Background loop */
+.loop { margin: 28px 0 8px; font-family: var(--sans); display: grid; gap: 10px; }
+.loop-row { position: relative; height: 54px; border-top: 1px solid var(--rule); padding-left: 130px; }
+.loop-lab { position: absolute; left: 0; top: 8px; font-size: 13px; font-weight: 600; color: var(--ink-2); width: 120px; }
+.lp { position: absolute; top: 8px; left: calc(130px + (100% - 130px - 96px) * var(--x) / 13.4); display: flex; flex-direction: column; gap: 1px; font-size: 12px; color: var(--ink-2); padding-left: 12px; white-space: nowrap; }
+.lp::before { content: ""; position: absolute; left: 0; top: 5px; width: 8px; height: 8px; border-radius: 50%; }
+.lp b { font-size: 13px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.lp.win::before { background: var(--enacted); }
+.lp.out::before { background: var(--fall); }
+.loop-axis { display: flex; justify-content: space-between; padding-left: 130px; font-size: 11px; color: var(--ink-3); border-top: 1px solid var(--rule); padding-top: 4px; }
+@media (max-width: 640px) {
+  .loop-row { padding-left: 0; height: auto; display: flex; flex-wrap: wrap; gap: 8px 16px; padding-top: 30px; }
+  .lp { position: static; }
+  .loop-axis { display: none; }
+}
+/* Who won vs who governed */
+.won { display: grid; gap: 12px; font-family: var(--sans); }
+.wrow { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr) 150px; gap: 14px; align-items: center; background: #ffffff; border: 1px solid var(--rule); border-radius: 12px; padding: 14px 16px; }
+.wrow .yr { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.wrow .who { display: flex; gap: 10px; align-items: center; min-width: 0; }
+.wrow .who img { width: 34px; height: 34px; object-fit: contain; flex: none; }
+.wrow .who small { display: block; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+html[data-lang="th"] .wrow .who small { letter-spacing: 0; }
+.wrow .who strong { display: block; font-size: 15px; }
+.wrow .who span.seats { font-size: 13px; color: var(--ink-2); }
+.wrow .verdict { justify-self: end; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 99px; text-align: center; }
+.wrow .verdict.diff { background: #fbe4dc; color: #9a3412; }
+.wrow .verdict.same { background: #dfe9f7; color: var(--enacted); }
+.wrow .seatbar { grid-column: 2 / -1; height: 10px; display: flex; gap: 2px; border-radius: 4px; overflow: hidden; }
+.wrow .seatbar i { display: block; height: 100%; background: var(--rule); }
+.wrow .seatbar i.w { background: var(--merged); }
+.wrow .seatbar i.g { background: var(--enacted); }
+.wrow .seatbar i.wg { background: var(--enacted); }
+@media (max-width: 720px) {
+  .wrow { grid-template-columns: 1fr 1fr; }
+  .wrow .yr { grid-column: 1 / -1; }
+  .wrow .verdict { grid-column: 1 / -1; justify-self: start; }
+  .wrow .seatbar { grid-column: 1 / -1; }
+}
+/* Party network */
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; font-family: var(--sans); }
+.tabs button { font: 500 14px var(--sans); color: var(--ink-2); background: var(--bg); border: 1px solid var(--rule); border-radius: 99px; padding: 6px 14px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--char); border-color: var(--char); color: #ffffff; }
+.tabs button:focus-visible { outline: 2px solid var(--merged); outline-offset: 2px; }
+.net-note { font-family: var(--sans); font-size: 15px; color: var(--ink); margin: 10px 0 0; }
+#network svg text.node-label { font-weight: 600; fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+#network .dim { opacity: 0.12; }
+#network path.edge, #network circle.node { transition: opacity .25s; }
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  body { font-size: 18px; padding-inline: 16px; }
+  header.hero { padding-block: 44px 8px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .grow { transform-box: fill-box; transform-origin: left center; animation: grow 0.9s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes grow { from { transform: scaleX(0.001); } to { transform: scaleX(1); } }
+  .grow-up { transform-box: fill-box; transform-origin: center bottom; animation: growUp 0.8s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0ms); }
+  @keyframes growUp { from { transform: scaleY(0.001); } }
+  .pop { transform-box: fill-box; transform-origin: center; animation: pop 0.5s cubic-bezier(.2,.8,.3,1.35) both; animation-delay: var(--d, 0ms); }
+  @keyframes pop { from { transform: scale(0); } }
+  .fade { animation: fadeIn 0.6s ease both; animation-delay: var(--d, 0ms); }
+  @keyframes fadeIn { from { opacity: 0; } }
+  .draw { stroke-dasharray: var(--len); animation: draw 1.1s cubic-bezier(.3,.6,.3,1) both; animation-delay: var(--d, 0ms); }
+  @keyframes draw { from { stroke-dashoffset: var(--len); } to { stroke-dashoffset: 0; } }
+  /* scroll trigger: hold each chart's entrance until it is on screen, and stop replaying once it has played */
+  .chart.armed :is(.grow, .grow-up, .pop, .fade, .draw) { animation-play-state: paused; }
+  .chart.done :is(.grow, .grow-up, .pop, .fade, .draw) { animation: none; }
+  .chart.reset :is(.grow, .grow-up, .pop, .fade, .draw) { animation: none; }
+}
+</style>
+
+<div class="lang-switch" role="group" aria-label="Language / ภาษา">
+  <button type="button" id="lang-en" data-set-lang="en" aria-pressed="true">EN</button>
+  <button type="button" id="lang-th" data-set-lang="th" aria-pressed="false">ไทย</button>
+</div>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker"><span lang="en">Thailand · 2014–2026</span><span lang="th">ประเทศไทย · พ.ศ. 2557–2569</span></div>
+    <h1><span lang="en">The Fall of Thai Governments <span class="soft">and what they left behind</span></span><span lang="th">รัฐบาลที่<span style="white-space:nowrap">ล้มแล้วล้มอีก</span> <span class="soft">และสิ่งที่ทิ้งไว้เบื้องหลัง</span></span></h1>
+    <p class="dek" lang="en">A coup, a street protest movement, two dissolved parties, and four prime ministers in three years. We read 933 bills and 148,747 recorded votes to see what that churn does to how Thailand is governed.</p>
+    <p class="dek" lang="th">รัฐประหาร การชุมนุมบนท้องถนน พรรคการเมืองที่ถูกยุบสองพรรค และนายกรัฐมนตรีสี่คนในสามปี เราอ่านร่างกฎหมาย 933 ฉบับ และคะแนนเสียงรายบุคคล 148,747 เสียง เพื่อดูว่าความไม่นิ่งนี้ส่งผลต่อการบริหารประเทศอย่างไร</p>
+    <div class="byline"><span><span lang="en">Data: Politigraph by WeVis</span><span lang="th">ข้อมูล: Politigraph โดย WeVis</span></span><span><span lang="en">Records up to 25 September 2026</span><span lang="th">ข้อมูลถึงวันที่ 25 กันยายน 2569</span></span></div>
+    <p class="live hero-live" lang="en">Today is <b data-today></b>. It has been <b data-span="2014-05-22"></b> since the coup.</p>
+    <p class="live hero-live" lang="th">วันนี้คือวันที่ <b data-today></b> ผ่านมาแล้ว <b data-span="2014-05-22"></b> นับตั้งแต่รัฐประหาร</p>
+    <p class="thesis" lang="en">Our finding: since the coup, who governs Thailand has been shaped by court rulings, an unelected Senate and politicians switching sides. Parliament rarely changes the outcome.</p>
+    <p class="thesis" lang="th">ข้อค้นพบของเรา: หลังรัฐประหาร ใครจะได้เป็นรัฐบาลถูกกำหนดโดยคำตัดสินของศาล วุฒิสภาที่ไม่ได้มาจากการเลือกตั้ง และนักการเมืองที่ย้ายขั้ว ส่วนสภาแทบไม่ได้เปลี่ยนผลลัพธ์</p>
+  </header>
+
+  <section class="learn" id="learn" aria-labelledby="learn-title">
+    <div class="learn-head">
+      <div class="kicker"><span lang="en">Before you scroll · 7 things you'll learn</span><span lang="th">ก่อนเริ่มอ่าน · 7 เรื่องที่คุณจะได้รู้</span></div>
+      <h2 id="learn-title"><span lang="en">What you'll learn</span><span lang="th">สิ่งที่คุณจะได้รู้</span></h2>
+    </div>
+    <div class="learn-grid" id="learn-grid"></div>
+  </section>
+
+  <section class="chapter first" id="background">
+    <div class="kicker"><span lang="en">Background · 2001–2014</span><span lang="th">ปูมหลัง · พ.ศ. 2544–2557</span></div>
+    <h2><span lang="en">How we got here</span><span lang="th">เรามาถึงจุดนี้ได้อย่างไร</span></h2>
+    <div class="prose">
+      <p lang="en">The 2014 coup was not a one-off. For more than a decade before it, Thailand went round the same loop: a party led by Thaksin Shinawatra or his allies won an election, then a coup or a court ruling removed it, and the next election brought it back. Rival street movements, known by the colours of their shirts, grew on each side.</p>
+      <p lang="th">รัฐประหารปี 2557 ไม่ได้เกิดขึ้นครั้งเดียวโดดๆ กว่าสิบปีก่อนหน้านั้น ประเทศไทยวนอยู่ในวงจรเดิม คือพรรคของทักษิณ ชินวัตรหรือพันธมิตรชนะการเลือกตั้ง แล้วถูกรัฐประหารหรือคำตัดสินของศาลทำให้พ้นจากอำนาจ จากนั้นการเลือกตั้งครั้งถัดไปก็พากลับมาอีก ขณะที่การชุมนุมบนท้องถนนของสองฝ่าย ซึ่งเรียกกันตามสีเสื้อ ก็ขยายตัวขึ้นเรื่อยๆ</p>
+    </div>
+    <div class="loop" aria-label="Election wins and removals, 2001 to 2014">
+      <div class="loop-row"><span class="loop-lab"><span lang="en">Won an election</span><span lang="th">ชนะเลือกตั้ง</span></span>
+        <span class="lp win" style="--x:0"><b>2001</b><span lang="en">Thaksin</span><span lang="th">ทักษิณ</span></span>
+        <span class="lp win" style="--x:4"><b>2005</b><span lang="en">Thaksin again</span><span lang="th">ทักษิณสมัยสอง</span></span>
+        <span class="lp win" style="--x:6.9"><b>2007</b><span lang="en">Samak</span><span lang="th">สมัคร</span></span>
+        <span class="lp win" style="--x:10.5"><b>2011</b><span lang="en">Yingluck</span><span lang="th">ยิ่งลักษณ์</span></span></div>
+      <div class="loop-row"><span class="loop-lab"><span lang="en">Removed</span><span lang="th">ถูกทำให้พ้นอำนาจ</span></span>
+        <span class="lp out" style="--x:5.7"><b>2006</b><span lang="en">Coup</span><span lang="th">รัฐประหาร</span></span>
+        <span class="lp out" style="--x:7.7"><b>2008</b><span lang="en">Court, twice</span><span lang="th">ศาล 2 ครั้ง</span></span>
+        <span class="lp out" style="--x:12.6"><b>2014</b><span lang="en">Court, then coup</span><span lang="th">ศาล แล้วรัฐประหาร</span></span></div>
+      <div class="loop-axis"><span>2001</span><span>2014</span></div>
+    </div>
+    <ol class="steps">
+      <li><div class="when">2001–2005</div><div><h4><span lang="en">Thaksin wins twice</span><span lang="th">ทักษิณชนะเลือกตั้งสองครั้ง</span></h4><p><span lang="en">His Thai Rak Thai party wins big on health care and village funds, and in 2005 he becomes the first elected prime minister to finish a full term.</span><span lang="th">พรรคไทยรักไทยชนะอย่างถล่มทลายด้วยนโยบายหลักประกันสุขภาพและกองทุนหมู่บ้าน และในปี 2548 เขาเป็นนายกฯ จากการเลือกตั้งคนแรกที่อยู่ครบวาระ</span></p></div><span class="out yes"><span lang="en">Elected</span><span lang="th">ชนะเลือกตั้ง</span></span></li>
+      <li><div class="when">2006–2007</div><div><h4><span lang="en">A coup, and his party dissolved</span><span lang="th">รัฐประหาร และพรรคถูกยุบ</span></h4><p><span lang="en">The army removes Thaksin in September 2006. A court dissolves Thai Rak Thai in 2007, and a new constitution is passed.</span><span lang="th">กองทัพยึดอำนาจจากทักษิณในเดือนกันยายน 2549 ปีต่อมาศาลยุบพรรคไทยรักไทย และมีรัฐธรรมนูญฉบับใหม่</span></p></div><span class="out no"><span lang="en">Removed</span><span lang="th">พ้นอำนาจ</span></span></li>
+      <li><div class="when">2007–2008</div><div><h4><span lang="en">His allies win, then the courts step in</span><span lang="th">พันธมิตรชนะ แล้วศาลเข้ามา</span></h4><p><span lang="en">The People's Power Party wins the December 2007 election. In 2008 one prime minister is removed by the court and the party is dissolved, while yellow-shirt protesters occupy Bangkok's airports. Parliament then picks Democrat leader Abhisit Vejjajiva.</span><span lang="th">พรรคพลังประชาชนชนะการเลือกตั้งเดือนธันวาคม 2550 ปี 2551 ศาลให้นายกฯ คนหนึ่งพ้นตำแหน่งและยุบพรรค ขณะที่ผู้ชุมนุมเสื้อเหลืองยึดสนามบินในกรุงเทพฯ จากนั้นสภาเลือกอภิสิทธิ์ เวชชาชีวะ หัวหน้าพรรคประชาธิปัตย์</span></p></div><span class="out no"><span lang="en">Removed</span><span lang="th">พ้นอำนาจ</span></span></li>
+      <li><div class="when">2010</div><div><h4><span lang="en">Red-shirt protests end in bloodshed</span><span lang="th">การชุมนุมเสื้อแดงจบลงด้วยความสูญเสีย</span></h4><p><span lang="en">Red-shirt supporters of Thaksin occupy central Bangkok demanding an election. The military clears the streets, and more than 90 people die over the two months.</span><span lang="th">ผู้สนับสนุนทักษิณในนามเสื้อแดงชุมนุมใจกลางกรุงเทพฯ เรียกร้องให้ยุบสภา กองทัพเข้าสลายการชุมนุม และมีผู้เสียชีวิตกว่า 90 คนตลอดสองเดือน</span></p></div><span class="out part"><span lang="en">Unrest</span><span lang="th">ความขัดแย้ง</span></span></li>
+      <li><div class="when">2011</div><div><h4><span lang="en">Yingluck wins</span><span lang="th">ยิ่งลักษณ์ชนะเลือกตั้ง</span></h4><p><span lang="en">Thaksin's sister Yingluck Shinawatra leads Pheu Thai to a majority and becomes Thailand's first woman prime minister.</span><span lang="th">ยิ่งลักษณ์ ชินวัตร น้องสาวของทักษิณ นำพรรคเพื่อไทยชนะเสียงข้างมาก และเป็นนายกรัฐมนตรีหญิงคนแรกของไทย</span></p></div><span class="out yes"><span lang="en">Elected</span><span lang="th">ชนะเลือกตั้ง</span></span></li>
+      <li><div class="when">2013–2014</div><div><h4><span lang="en">Protests, a voided election, a court ruling, a coup</span><span lang="th">การชุมนุม การเลือกตั้งที่เป็นโมฆะ คำตัดสินศาล และรัฐประหาร</span></h4><p><span lang="en">Mass protests follow a sweeping amnesty bill. The February 2014 election is disrupted and later voided by the court. The court removes Yingluck on 7 May, and on 22 May the army takes power.</span><span lang="th">การชุมนุมใหญ่เกิดขึ้นหลังร่างกฎหมายนิรโทษกรรมแบบเหมาเข่ง การเลือกตั้งเดือนกุมภาพันธ์ 2557 ถูกขัดขวาง และศาลวินิจฉัยให้เป็นโมฆะ วันที่ 7 พฤษภาคม ศาลให้ยิ่งลักษณ์พ้นตำแหน่ง และวันที่ 22 พฤษภาคม กองทัพยึดอำนาจ</span></p></div><span class="out no"><span lang="en">Removed</span><span lang="th">พ้นอำนาจ</span></span></li>
+    </ol>
+    <div class="stats">
+      <div class="stat"><div class="num">~12</div><div class="label"><span lang="en">successful coups since 1932, plus many failed attempts</span><span lang="th">รัฐประหารที่สำเร็จตั้งแต่ปี 2475 ไม่นับที่ล้มเหลวอีกหลายครั้ง</span></div></div>
+      <div class="stat"><div class="num">20</div><div class="label"><span lang="en">constitutions since 1932. The current one, from 2017, is the 20th.</span><span lang="th">รัฐธรรมนูญตั้งแต่ปี 2475 ฉบับปัจจุบันปี 2560 คือฉบับที่ 20</span></div></div>
+      <div class="stat alert"><div class="num">4</div><div class="label"><span lang="en">elected prime ministers removed by a court or coup between 2006 and 2014</span><span lang="th">นายกฯ จากการเลือกตั้งที่พ้นตำแหน่งเพราะศาลหรือรัฐประหาร ช่วงปี 2549–2557</span></div></div>
+    </div>
+    <div class="prose">
+      <p class="takeaway" lang="en">Elections kept producing the same winners, and courts and coups kept removing them. The 2017 rules were written to end that loop.</p>
+      <p class="takeaway" lang="th">การเลือกตั้งให้ผู้ชนะหน้าเดิมซ้ำๆ ขณะที่ศาลและรัฐประหารก็ทำให้พวกเขาพ้นอำนาจซ้ำๆ กติกาปี 2560 ถูกเขียนขึ้นเพื่อยุติวงจรนี้</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="coup">
+    <div class="kicker"><span lang="en">Prologue · 2014 to today</span><span lang="th">บทนำ · พ.ศ. 2557 ถึงปัจจุบัน</span></div>
+    <h2><span lang="en">One coup, four court rulings, and power that keeps changing hands</span><span lang="th">รัฐประหารหนึ่งครั้ง คำตัดสินศาลสี่ครั้ง และอำนาจที่เปลี่ยนมือไม่หยุด</span></h2>
+    <div class="prose">
+      <p lang="en">In 2014 the army took power and wrote its own rules for the elections that followed. Since then, judges have removed two prime ministers and dissolved two parties, including the one that won the most seats in 2023.</p>
+      <p lang="th">ปี 2557 กองทัพยึดอำนาจ และเขียนกติกาการเลือกตั้งที่ตามมาด้วยตัวเอง นับจากนั้น ศาลได้ให้นายกรัฐมนตรีพ้นจากตำแหน่งไปสองคน และยุบพรรคการเมืองไปสองพรรค รวมถึงพรรคที่ได้ที่นั่งมากที่สุดในการเลือกตั้งปี 2566</p>
+    </div>
+    <figure>
+      <div class="legend" id="coup-legend"></div>
+      <div class="chart scroll" id="coupline"></div>
+      <details><summary><span lang="en">Read the full timeline</span><span lang="th">อ่านไทม์ไลน์ทั้งหมด</span></summary><ol class="events" id="events"></ol></details>
+      <details><summary><span lang="en">Show every cabinet</span><span lang="th">ดูคณะรัฐมนตรีทุกชุด</span></summary><div class="tbl" id="timeline-table"></div></details>
+    </figure>
+    <div class="stats">
+      <div class="stat"><div class="num">5<small><span lang="en">years</span><span lang="th">ปี</span></small></div>
+        <div class="label"><span lang="en">of military rule before the next election</span><span lang="th">ของการปกครองโดยทหาร ก่อนจะมีการเลือกตั้งครั้งถัดไป</span></div>
+        <p class="live" lang="en">Thailand has now lived <b data-span="2014-05-22"></b> under the rules written after the coup.</p>
+        <p class="live" lang="th">ประเทศไทยอยู่ภายใต้กติกาที่เขียนขึ้นหลังรัฐประหารมาแล้ว <b data-span="2014-05-22"></b></p></div>
+      <div class="stat alert"><div class="num">4</div>
+        <div class="label"><span lang="en">court rulings that removed a prime minister or dissolved a party</span><span lang="th">คำตัดสินของศาลที่ทำให้นายกฯ พ้นตำแหน่งหรือยุบพรรค</span></div>
+        <p class="live" lang="en">The latest was <b data-ago="2025-08-29"></b> ago.</p>
+        <p class="live" lang="th">ครั้งล่าสุดเมื่อ <b data-ago="2025-08-29"></b> ที่แล้ว</p></div>
+      <div class="stat"><div class="num">4</div>
+        <div class="label"><span lang="en">prime ministers since 2023</span><span lang="th">นายกรัฐมนตรี ตั้งแต่ปี 2566</span></div>
+        <p class="live" lang="en">Three changes at the top in the last <b data-span="2023-08-22"></b>.</p>
+        <p class="live" lang="th">เปลี่ยนผู้นำไปแล้วสามครั้งในช่วง <b data-span="2023-08-22"></b> ที่ผ่านมา</p></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="rulebook">
+    <div class="kicker"><span lang="en">The rulebook · Constitution of 2017</span><span lang="th">กติกา · รัฐธรรมนูญ 2560</span></div>
+    <h2><span lang="en">The rules written after the coup</span><span lang="th">กติกาที่เขียนขึ้นหลังรัฐประหาร</span></h2>
+    <div class="prose">
+      <p lang="en">The junta's constitution took effect on 6 April 2017, after a referendum in which campaigning against it was restricted. Five of its rules explain much of what the rest of this story shows.</p>
+      <p lang="th">รัฐธรรมนูญของคณะรัฐประหารมีผลบังคับใช้เมื่อวันที่ 6 เมษายน 2560 หลังการลงประชามติที่การรณรงค์ไม่รับร่างถูกจำกัด กติกาห้าข้อในรัฐธรรมนูญฉบับนี้อธิบายสิ่งที่เรื่องราวต่อจากนี้แสดงให้เห็นได้เกือบทั้งหมด</p>
+    </div>
+
+    <ol class="rules">
+      <li>
+        <div class="sec"><span lang="en">Section 272</span><span lang="th">มาตรา 272</span></div>
+        <div class="rule"><h4><span lang="en">Appointed senators help choose the prime minister</span><span lang="th">ส.ว. แต่งตั้งร่วมเลือกนายกรัฐมนตรี</span></h4>
+          <p lang="en">For the first five years, the 250 senators picked by the junta vote on the prime minister alongside elected MPs.</p>
+          <p lang="th">ในห้าปีแรก ส.ว. 250 คนที่คณะรัฐประหารเลือกมา ร่วมลงมติเลือกนายกรัฐมนตรีกับ ส.ส. ที่มาจากการเลือกตั้ง</p></div>
+        <a class="effect" href="#coup"><span lang="en">Kept Prayut in office in 2019 and blocked Move Forward's Pita in 2023</span><span lang="th">ทำให้ประยุทธ์อยู่ต่อในปี 2562 และขวางพิธาจากก้าวไกลในปี 2566</span></a>
+      </li>
+      <li>
+        <div class="sec"><span lang="en">Section 133</span><span lang="th">มาตรา 133</span></div>
+        <div class="rule"><h4><span lang="en">Money bills need the prime minister's signature</span><span lang="th">ร่างกฎหมายการเงินต้องมีคำรับรองจากนายกฯ</span></h4>
+          <p lang="en">A bill from MPs or citizens that involves money can only be introduced if the prime minister endorses it.</p>
+          <p lang="th">ร่างกฎหมายจาก ส.ส. หรือประชาชนที่เกี่ยวกับการเงิน จะเสนอได้ก็ต่อเมื่อนายกรัฐมนตรีให้คำรับรอง</p></div>
+        <a class="effect" href="#laws"><span lang="en">One reason 560 of 731 MP bills never reached a vote</span><span lang="th">เหตุผลหนึ่งที่ร่างของ ส.ส. 560 จาก 731 ฉบับไม่เคยถึงการลงมติ</span></a>
+      </li>
+      <li>
+        <div class="sec"><span lang="en">Ethics rules</span><span lang="th">มาตรฐานจริยธรรม</span></div>
+        <div class="rule"><h4><span lang="en">The court rules on ministers' ethics</span><span lang="th">ศาลวินิจฉัยเรื่องจริยธรรมของรัฐมนตรี</span></h4>
+          <p lang="en">Ministers must meet broad standards of “integrity” and ethics, and the Constitutional Court rules on whether they do.</p>
+          <p lang="th">รัฐมนตรีต้องมี “ความซื่อสัตย์สุจริตเป็นที่ประจักษ์” และไม่ผิดมาตรฐานจริยธรรม โดยศาลรัฐธรรมนูญเป็นผู้ตัดสิน</p></div>
+        <a class="effect" href="#coup"><span lang="en">Used to remove Srettha in 2024 and Paetongtarn in 2025</span><span lang="th">ใช้ให้เศรษฐาพ้นตำแหน่งในปี 2567 และแพทองธารในปี 2568</span></a>
+      </li>
+      <li>
+        <div class="sec"><span lang="en">Parties law</span><span lang="th">กฎหมายพรรคการเมือง</span></div>
+        <div class="rule"><h4><span lang="en">The court can dissolve a party</span><span lang="th">ศาลยุบพรรคการเมืองได้</span></h4>
+          <p lang="en">The political parties law written under this constitution lets the Constitutional Court dissolve a party and ban its leaders.</p>
+          <p lang="th">กฎหมายพรรคการเมืองที่ออกภายใต้รัฐธรรมนูญฉบับนี้ ให้ศาลรัฐธรรมนูญยุบพรรคและตัดสิทธิกรรมการบริหารพรรคได้</p></div>
+        <a class="effect" href="#parties"><span lang="en">Ended Future Forward in 2020 and Move Forward in 2024</span><span lang="th">ยุบพรรคอนาคตใหม่ในปี 2563 และพรรคก้าวไกลในปี 2567</span></a>
+      </li>
+      <li>
+        <div class="sec"><span lang="en">Section 256</span><span lang="th">มาตรา 256</span></div>
+        <div class="rule"><h4><span lang="en">Changing the rules needs the Senate</span><span lang="th">จะแก้กติกาต้องได้เสียงวุฒิสภา</span></h4>
+          <p lang="en">An amendment needs the votes of at least a third of senators, and changes to key chapters also need a referendum.</p>
+          <p lang="th">การแก้ไขรัฐธรรมนูญต้องได้เสียง ส.ว. อย่างน้อยหนึ่งในสาม และถ้าแก้หมวดสำคัญต้องทำประชามติด้วย</p></div>
+        <a class="effect" href="#rewrite"><span lang="en">Blocked the rewrite attempts of 2020 and 2021</span><span lang="th">ขวางความพยายามเขียนรัฐธรรมนูญใหม่ในปี 2563 และ 2564</span></a>
+      </li>
+    </ol>
+
+    <h3 class="subhead" id="rewrite"><span lang="en">Trying to change the rules</span><span lang="th">ความพยายามเปลี่ยนกติกา</span></h3>
+    <ol class="steps">
+      <li><div class="when"><span lang="en">18 Nov 2020</span><span lang="th">18 พ.ย. 2563</span></div><div><h4><span lang="en">A citizens' draft is rejected</span><span lang="th">ร่างของประชาชนถูกปัดตก</span></h4><p><span lang="en">A draft backed by 100,732 signatures fails because too few senators support it.</span><span lang="th">ร่างที่มีผู้ลงชื่อสนับสนุน 100,732 คน ไม่ผ่าน เพราะได้เสียง ส.ว. ไม่พอ</span></p></div><span class="out no"><span lang="en">Blocked</span><span lang="th">ถูกขวาง</span></span></li>
+      <li><div class="when"><span lang="en">17 Mar 2021</span><span lang="th">17 มี.ค. 2564</span></div><div><h4><span lang="en">The rewrite dies at the final vote</span><span lang="th">การเขียนใหม่ตกไปในวาระสุดท้าย</span></h4><p><span lang="en">After the court rules that a referendum must come first, the bill gets 208 votes. It needed 369.</span><span lang="th">หลังศาลวินิจฉัยว่าต้องทำประชามติก่อน ร่างได้เพียง 208 เสียง จาก 369 เสียงที่ต้องการ</span></p></div><span class="out no"><span lang="en">Blocked</span><span lang="th">ถูกขวาง</span></span></li>
+      <li><div class="when"><span lang="en">Sep 2021</span><span lang="th">ก.ย. 2564</span></div><div><h4><span lang="en">Two ballots return</span><span lang="th">กลับมาใช้บัตรเลือกตั้งสองใบ</span></h4><p><span lang="en">An amendment restoring separate votes for a local MP and a party passes. It changes how MPs are elected, not who holds power over them.</span><span lang="th">การแก้ไขให้กลับมาเลือก ส.ส. เขตและพรรคแยกกันผ่านสภา เปลี่ยนวิธีเลือก ส.ส. แต่ไม่ได้เปลี่ยนว่าใครมีอำนาจเหนือพวกเขา</span></p></div><span class="out yes"><span lang="en">Passed</span><span lang="th">ผ่าน</span></span></li>
+      <li><div class="when"><span lang="en">Sep–Dec 2025</span><span lang="th">ก.ย.–ธ.ค. 2568</span></div><div><h4><span lang="en">A path to a new constitution, with the Senate's veto kept</span><span lang="th">เปิดทางสู่รัฐธรรมนูญใหม่ แต่ ส.ว. ยังมีสิทธิ์ยับยั้ง</span></h4><p><span lang="en">The court rules that a new constitution needs three referendums. Parliament approves the first one, but rejects a proposal to let future amendments pass by simple majority.</span><span lang="th">ศาลวินิจฉัยว่าการทำรัฐธรรมนูญใหม่ต้องทำประชามติสามครั้ง รัฐสภาอนุมัติการทำประชามติครั้งแรก แต่ไม่รับข้อเสนอให้การแก้ไขครั้งต่อไปผ่านได้ด้วยเสียงข้างมากธรรมดา</span></p></div><span class="out part"><span lang="en">Partly</span><span lang="th">บางส่วน</span></span></li>
+      <li><div class="when"><span lang="en">8 Feb 2026</span><span lang="th">8 ก.พ. 2569</span></div><div><h4><span lang="en">Voters say yes to a new constitution</span><span lang="th">ประชาชนเห็นชอบให้มีรัฐธรรมนูญใหม่</span></h4><p><span lang="en">On the same day as the general election, 60% vote to begin writing a new constitution.</span><span lang="th">ในวันเดียวกับการเลือกตั้งทั่วไป 60% ลงมติให้เริ่มเขียนรัฐธรรมนูญฉบับใหม่</span></p></div><span class="out yes"><span lang="en">Approved</span><span lang="th">เห็นชอบ</span></span></li>
+      <li><div class="when"><span lang="en">Jun 2026–</span><span lang="th">มิ.ย. 2569–</span></div><div><h4><span lang="en">A fight over who writes it</span><span lang="th">การต่อสู้ว่าใครจะเป็นคนเขียน</span></h4><p><span lang="en">Bhumjaithai files its own rewrite plan. Critics fear it keeps power with the ruling network, and a campaign led by the legal group iLaw collects signatures for a fully elected drafting assembly.</span><span lang="th">พรรคภูมิใจไทยยื่นร่างแก้ไขของตัวเอง ฝ่ายวิจารณ์กังวลว่าจะทำให้อำนาจยังอยู่กับเครือข่ายผู้มีอำนาจ ขณะที่แคมเปญซึ่งนำโดย iLaw ล่ารายชื่อเพื่อให้มีสภาร่างรัฐธรรมนูญที่มาจากการเลือกตั้งทั้งหมด</span></p></div><span class="out part"><span lang="en">Under way</span><span lang="th">กำลังดำเนินอยู่</span></span></li>
+    </ol>
+
+    <figure>
+      <p class="fig-title"><span lang="en">The 2026 referendum: should Thailand have a new constitution?</span><span lang="th">ประชามติ 2569: ควรมีรัฐธรรมนูญฉบับใหม่หรือไม่?</span></p>
+      <p class="fig-sub"><span lang="en">Votes cast on 8 February 2026. Turnout was 69.65% of 52.9 million registered voters.</span><span lang="th">คะแนนเสียงวันที่ 8 กุมภาพันธ์ 2569 ผู้มาใช้สิทธิ 69.65% จากผู้มีสิทธิ 52.9 ล้านคน</span></p>
+      <div class="chart" id="referendum"></div>
+    </figure>
+    <div class="prose">
+      <p class="takeaway" lang="en">The rules behind every chapter were written by the junta and made hard to change on purpose. In 2026 voters asked to replace them. Who gets to write the new ones is still being decided.</p>
+      <p class="takeaway" lang="th">กติกาเบื้องหลังทุกบทในเรื่องนี้เขียนโดยคณะรัฐประหาร และถูกออกแบบให้แก้ยาก ในปี 2569 ประชาชนลงมติให้เปลี่ยน แต่ใครจะได้เขียนกติกาใหม่ยังเป็นเรื่องที่กำลังต่อสู้กันอยู่</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="cabinets">
+  <div class="kicker"><span lang="en">The elected era · 2019–2026</span><span lang="th">ยุคหลังการเลือกตั้ง · พ.ศ. 2562–2569</span></div>
+  <h2><span lang="en">Five cabinets in seven years</span><span lang="th">ห้าคณะรัฐมนตรีในเจ็ดปี</span></h2>
+
+  <figure>
+    <p class="fig-title"><span lang="en">Who won the election, and who led the government</span><span lang="th">ใครชนะเลือกตั้ง และใครได้เป็นรัฐบาล</span></p>
+    <p class="fig-sub"><span lang="en">Seats won in the 500-seat House at each election since the coup.</span><span lang="th">จำนวนที่นั่งในสภา 500 ที่นั่ง ในการเลือกตั้งแต่ละครั้งหลังรัฐประหาร</span></p>
+    <div class="won" id="won"></div>
+    <figcaption lang="en">Official results as reported by Wikipedia's election pages. In 2023, Move Forward first tried to form a government, but its candidate was blocked by the appointed Senate.</figcaption>
+    <figcaption lang="th">ผลการเลือกตั้งอย่างเป็นทางการตามที่รวบรวมในวิกิพีเดีย ปี 2566 พรรคก้าวไกลพยายามตั้งรัฐบาลก่อน แต่แคนดิเดตนายกฯ ถูก ส.ว. แต่งตั้งขวางไว้</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p lang="en">Thailand's first government after the 2019 election, led by former army chief Prayut Chan-o-cha, lasted more than four years. Every government since has been shorter. <strong>None of the next three lasted a full year.</strong></p>
+    <p lang="th">รัฐบาลชุดแรกหลังการเลือกตั้งปี 2562 ซึ่งนำโดยพลเอกประยุทธ์ จันทร์โอชา อดีตผู้บัญชาการทหารบก อยู่ได้นานกว่าสี่ปี แต่รัฐบาลทุกชุดหลังจากนั้นอยู่ได้สั้นลง <strong>สามชุดถัดมาไม่มีชุดไหนอยู่ครบหนึ่งปีเลย</strong></p>
+    <p lang="en">Two prime ministers, Srettha Thavisin in 2024 and Paetongtarn Shinawatra in 2025, were removed by the Constitutional Court rather than by voters or by parliament. Their successor, Anutin Charnvirakul, dissolved the House after 84 days in office and won the job back after a snap election.</p>
+    <p lang="th">นายกรัฐมนตรีสองคน คือ เศรษฐา ทวีสิน ในปี 2567 และแพทองธาร ชินวัตร ในปี 2568 พ้นจากตำแหน่งเพราะคำวินิจฉัยของศาลรัฐธรรมนูญ ไม่ใช่เพราะประชาชนหรือสภา ผู้ที่มารับตำแหน่งต่อคืออนุทิน ชาญวีรกูล ซึ่งยุบสภาหลังอยู่ในตำแหน่งได้ 84 วัน แล้วกลับมาเป็นนายกฯ อีกครั้งหลังการเลือกตั้ง</p>
+    <p lang="en">A government that falls takes its unfinished work with it. The rest of this story follows that work: the laws that get written, who writes them, and who is in the room when they pass.</p>
+    <p lang="th">เมื่อรัฐบาลล้ม งานที่ยังทำไม่เสร็จก็ล้มตามไปด้วย เรื่องราวต่อจากนี้จะพาไปดูงานเหล่านั้น ทั้งกฎหมายที่ถูกเขียนขึ้น ใครเป็นคนเขียน และใครอยู่ในห้องประชุมตอนที่กฎหมายผ่าน</p>
+    <p class="takeaway" lang="en">Governments here end by court ruling and party deal more often than at the ballot box.</p>
+    <p class="takeaway" lang="th">รัฐบาลไทยจบลงด้วยคำตัดสินของศาลและการต่อรองระหว่างพรรค บ่อยกว่าจบลงที่หีบเลือกตั้ง</p>
+  </div>
+
+  <div class="stats wrap">
+    <div class="stat"><div class="num">5</div>
+      <div class="label"><span lang="en">cabinets since July 2019</span><span lang="th">คณะรัฐมนตรี ตั้งแต่กรกฎาคม 2562</span></div>
+      <p class="live" lang="en">It has been <b data-span="2019-07-10"></b>. That is a new cabinet every <b data-every="2019-07-10" data-n="5"></b> on average.</p>
+      <p class="live" lang="th">ผ่านมาแล้ว <b data-span="2019-07-10"></b> เฉลี่ยแล้วมีคณะรัฐมนตรีชุดใหม่ทุก <b data-every="2019-07-10" data-n="5"></b></p></div>
+    <div class="stat alert"><div class="num">84<small><span lang="en">days</span><span lang="th">วัน</span></small></div>
+      <div class="label"><span lang="en">the shortest cabinet, before the House was dissolved</span><span lang="th">คณะรัฐมนตรีที่อยู่สั้นที่สุด ก่อนการยุบสภา</span></div>
+      <p class="live" lang="en">Anutin's current cabinet is on day <b data-day="2026-03-30"></b>.</p>
+      <p class="live" lang="th">คณะรัฐมนตรีชุดปัจจุบันของอนุทินอยู่มาถึงวันที่ <b data-day="2026-03-30"></b> แล้ว</p></div>
+    <div class="stat"><div class="num">6</div>
+      <div class="label"><span lang="en">different defence ministers, and 6 tourism ministers</span><span lang="th">รัฐมนตรีกลาโหมที่ไม่ซ้ำคน และรัฐมนตรีท่องเที่ยวอีก 6 คน</span></div>
+      <p class="live" lang="en">That is a new defence minister every <b data-every="2019-07-10" data-n="6"></b>.</p>
+      <p class="live" lang="th">เฉลี่ยแล้วเปลี่ยนรัฐมนตรีกลาโหมทุก <b data-every="2019-07-10" data-n="6"></b></p></div>
+  </div>
+
+  <figure>
+    <p class="fig-title"><span lang="en">Revolving chairs</span><span lang="th">เก้าอี้ดนตรี</span></p>
+    <p class="fig-sub"><span lang="en">Number of different people who have led each ministry, July 2019 to today. One dot per minister.</span><span lang="th">จำนวนคนที่เคยนั่งเก้าอี้รัฐมนตรีว่าการแต่ละกระทรวง ตั้งแต่กรกฎาคม 2562 ถึงวันนี้ หนึ่งจุดคือรัฐมนตรีหนึ่งคน</span></p>
+    <div class="chart" id="ministers"></div>
+  </figure>
+
+  </section>
+
+  <section class="chapter" id="laws">
+    <div class="kicker"><span lang="en">Chapter 1 · Who writes the law</span><span lang="th">บทที่ 1 · ใครเป็นคนเขียนกฎหมาย</span></div>
+    <h2><span lang="en">Almost every law starts in the cabinet</span><span lang="th">กฎหมายเกือบทั้งหมดเริ่มต้นที่คณะรัฐมนตรี</span></h2>
+    <div class="prose">
+      <p lang="en">In Thailand, a bill can come from three places: the cabinet, elected MPs, or ordinary citizens who collect at least 10,000 signatures. The cabinet can also skip parliament and issue an <em>emergency decree</em>, which takes effect as law right away.</p>
+      <p lang="th">ในประเทศไทย ร่างกฎหมายเสนอได้จากสามทาง คือ คณะรัฐมนตรี ส.ส. หรือประชาชนที่รวบรวมรายชื่อได้อย่างน้อย 10,000 คน นอกจากนี้ คณะรัฐมนตรียังออก<em>พระราชกำหนด</em>ได้โดยไม่ต้องผ่านสภาก่อน และมีผลเป็นกฎหมายทันที</p>
+      <p lang="en">On paper, all three routes are open. In practice, the outcome depends almost entirely on who sends the bill.</p>
+      <p lang="th">บนกระดาษ ทั้งสามทางเปิดกว้างเท่ากัน แต่ในความเป็นจริง ผลลัพธ์แทบทั้งหมดขึ้นอยู่กับว่าใครเป็นคนเสนอ</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num">48%</div><div class="label"><span lang="en">of cabinet bills became law (75 of 156)</span><span lang="th">ของร่างกฎหมายจากคณะรัฐมนตรีได้เป็นกฎหมาย (75 จาก 156 ฉบับ)</span></div></div>
+      <div class="stat"><div class="num">18<small><span lang="en">of 19</span><span lang="th">จาก 19</span></small></div><div class="label"><span lang="en">emergency decrees became law. The last is still pending.</span><span lang="th">พระราชกำหนดได้เป็นกฎหมาย ฉบับล่าสุดยังรอการพิจารณา</span></div></div>
+      <div class="stat alert"><div class="num">1.2%</div><div class="label"><span lang="en">of bills from MPs became law (9 of 731)</span><span lang="th">ของร่างกฎหมายจาก ส.ส. ได้เป็นกฎหมาย (9 จาก 731 ฉบับ)</span></div></div>
+      <div class="stat alert"><div class="num">0</div><div class="label"><span lang="en">of 16 citizen-proposed bills became law</span><span lang="th">จากร่างกฎหมายภาคประชาชน 16 ฉบับ ที่ได้เป็นกฎหมาย</span></div></div>
+    </div>
+
+    <figure>
+      <p class="fig-title"><span lang="en">922 bills, one dot each</span><span lang="th">ร่างกฎหมาย 922 ฉบับ ฉบับละหนึ่งจุด</span></p>
+      <p class="fig-sub"><span lang="en">Grouped by who proposed them, coloured by what happened next. Hover or tap a dot for the bill's name.</span><span lang="th">แบ่งกลุ่มตามผู้เสนอ และใช้สีบอกว่าเกิดอะไรขึ้นต่อ ชี้หรือแตะที่จุดเพื่อดูชื่อร่างกฎหมาย</span></p>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--enacted)"></i><span lang="en">Became law</span><span lang="th">ได้เป็นกฎหมาย</span></span>
+        <span><i class="sw" style="background:var(--merged)"></i><span lang="en">Merged into another bill</span><span lang="th">ถูกรวมเข้ากับร่างอื่น</span></span>
+        <span><i class="sw" style="background:var(--pending)"></i><span lang="en">Still in progress</span><span lang="th">อยู่ระหว่างพิจารณา</span></span>
+        <span><i class="sw ring"></i><span lang="en">Rejected or lapsed</span><span lang="th">ถูกปัดตกหรือตกไป</span></span>
+      </div>
+      <div class="chart" id="dots"></div>
+      <figcaption lang="en">Bills from the 25th, 26th and 27th House of Representatives (2019–2026). “Merged” means parliament folded the bill into a similar one, so parts of it may live on. Eleven bills with an unknown proposer are left out of the chart and listed in the table.</figcaption>
+      <figcaption lang="th">ร่างกฎหมายในสภาผู้แทนราษฎรชุดที่ 25, 26 และ 27 (2562–2569) “ถูกรวมร่าง” หมายถึงสภานำร่างนี้ไปรวมกับร่างที่คล้ายกัน เนื้อหาบางส่วนจึงอาจยังอยู่ ร่างกฎหมาย 11 ฉบับที่ไม่ทราบผู้เสนอไม่ได้แสดงในแผนภาพ แต่มีอยู่ในตาราง</figcaption>
+      <details><summary><span lang="en">Show the numbers</span><span lang="th">ดูตัวเลข</span></summary><div class="tbl" id="dots-table"></div></details>
+    </figure>
+
+    <div class="prose">
+      <p lang="en">Is 1.2% unusual? In most parliaments the government runs the agenda, and bills from ordinary MPs rarely pass. In the UK, <strong>about 4% of backbench bills became law</strong> between 2010 and 2026. Thai MPs do worse, but the sharper difference is at the edges: the cabinet's emergency decrees almost always become law, and citizens' bills never have.</p>
+      <p lang="th">1.2% ถือว่าน้อยผิดปกติไหม? ในรัฐสภาส่วนใหญ่ รัฐบาลเป็นผู้กำหนดวาระ และร่างกฎหมายจาก ส.ส. ทั่วไปก็ผ่านได้ยากอยู่แล้ว ที่สหราชอาณาจักร <strong>ร่างกฎหมายของ ส.ส. ที่ไม่ได้เป็นรัฐมนตรีผ่านเป็นกฎหมายราว 4%</strong> ในช่วงปี 2553–2569 ส.ส. ไทยทำได้น้อยกว่านั้น แต่ความต่างที่ชัดกว่าอยู่ที่ปลายทั้งสองด้าน คือ พระราชกำหนดของรัฐบาลแทบจะผ่านทุกฉบับ ขณะที่ร่างกฎหมายของประชาชนยังไม่เคยผ่านเลย</p>
+      <p lang="en">The biggest drop happens before any vote. <strong>560 of the 731 bills written by MPs never reached a first-reading vote.</strong> They were filed, then waited. When the House was dissolved in 2023 and again in 2025, bills still waiting could lapse with it.</p>
+      <p lang="th">ร่างกฎหมายหล่นหายมากที่สุดตั้งแต่ก่อนจะมีการลงมติด้วยซ้ำ <strong>ร่างกฎหมายของ ส.ส. 560 จาก 731 ฉบับ ไม่เคยได้เข้าสู่การลงมติวาระแรก</strong> ยื่นไปแล้วก็ได้แต่รอ และเมื่อมีการยุบสภาในปี 2566 และ 2568 ร่างที่ค้างอยู่ก็อาจตกไปพร้อมกัน</p>
+      <p lang="en">Part of the delay is built into the rules. The constitution says a bill that involves money must be endorsed by the prime minister before the House can debate it, which gives the government a gate over many opposition bills.</p>
+      <p lang="th">ความล่าช้าส่วนหนึ่งมาจากกติกาเอง รัฐธรรมนูญกำหนดว่าร่างกฎหมายที่เกี่ยวกับการเงินต้องได้คำรับรองจากนายกรัฐมนตรีก่อน สภาจึงจะพิจารณาได้ รัฐบาลจึงมีประตูที่กั้นร่างกฎหมายของฝ่ายค้านได้หลายฉบับ</p>
+    </div>
+
+    <figure>
+      <p class="fig-title"><span lang="en">What happened to the 731 bills written by MPs</span><span lang="th">เกิดอะไรขึ้นกับร่างกฎหมาย 731 ฉบับของ ส.ส.</span></p>
+      <p class="fig-sub"><span lang="en">And how long a successful bill takes, from proposal to law</span><span lang="th">และร่างที่ผ่านต้องใช้เวลานานแค่ไหน นับจากวันที่เสนอจนเป็นกฎหมาย</span></p>
+      <div class="chart" id="mpbar"></div>
+    </figure>
+
+    <p class="fig-title cards-title"><span lang="en">Four laws that show the pattern</span><span lang="th">กฎหมายสี่เรื่องที่สะท้อนภาพนี้</span></p>
+    <div class="cards">
+      <article class="card">
+        <div class="chips"><span class="chip"><i style="--c:var(--pending)"></i><span lang="en">Citizens, MPs and cabinet</span><span lang="th">ประชาชน ส.ส. และ ครม.</span></span><span class="chip"><span lang="en">Not yet law</span><span lang="th">ยังไม่เป็นกฎหมาย</span></span></div>
+        <h4><span lang="en">Clean air</span><span lang="th">อากาศสะอาด</span></h4>
+        <p lang="en">Bangkok and the north choke on PM2.5 smog every dry season. Since 2020, <b>17 clean-air bills</b> have been filed: 13 by MPs, 2 by citizens and 2 by the cabinet. Four were rejected, five merged, eight are still in progress.</p>
+        <p lang="th">กรุงเทพฯ และภาคเหนือเจอฝุ่น PM2.5 ทุกปีในฤดูฝุ่น ตั้งแต่ปี 2563 มี<b>ร่างกฎหมายอากาศสะอาด 17 ฉบับ</b> เสนอโดย ส.ส. 13 ฉบับ ประชาชน 2 ฉบับ และคณะรัฐมนตรี 2 ฉบับ ถูกปัดตก 4 ฉบับ ถูกรวมร่าง 5 ฉบับ และอีก 8 ฉบับยังอยู่ระหว่างพิจารณา</p>
+        <p class="t-thai">ร่างพระราชบัญญัติกำกับดูแลการจัดการอากาศสะอาดเพื่อสุขภาพแบบบูรณาการ</p>
+      </article>
+      <article class="card">
+        <div class="chips"><span class="chip"><i style="--c:var(--merged)"></i><span lang="en">Citizens</span><span lang="th">ประชาชน</span></span><span class="chip"><span lang="en">Rejected, then refiled</span><span lang="th">ถูกปัดตก แล้วยื่นใหม่</span></span></div>
+        <h4><span lang="en">A council for Indigenous peoples</span><span lang="th">สภาชนเผ่าพื้นเมือง</span></h4>
+        <p lang="en">Citizens proposed a national council for Indigenous and ethnic groups in 2021. It was rejected. They filed it again in 2023, and it is still waiting.</p>
+        <p lang="th">ปี 2564 ประชาชนเสนอให้ตั้งสภาของชนเผ่าพื้นเมืองและกลุ่มชาติพันธุ์ แต่ถูกปัดตก จึงยื่นใหม่อีกครั้งในปี 2566 และจนถึงวันนี้ก็ยังรอการพิจารณาอยู่</p>
+        <p class="t-thai">ร่างพระราชบัญญัติสภาชนเผ่าพื้นเมืองแห่งประเทศไทย</p>
+      </article>
+      <article class="card">
+        <div class="chips"><span class="chip"><i style="--c:var(--merged)"></i><span lang="en">Citizens</span><span lang="th">ประชาชน</span></span><span class="chip"><span lang="en">Rejected</span><span lang="th">ถูกปัดตก</span></span></div>
+        <h4><span lang="en">Undoing the junta's orders</span><span lang="th">ยกเลิกคำสั่งคณะรัฐประหาร</span></h4>
+        <p lang="en">In 2019, citizens filed a bill to cancel the junta's orders that they said broke human rights and democratic principles. It was rejected.</p>
+        <p lang="th">ปี 2562 ประชาชนยื่นร่างกฎหมายเพื่อยกเลิกประกาศและคำสั่งของ คสช. ที่เห็นว่าขัดต่อหลักสิทธิมนุษยชนและประชาธิปไตย แต่ถูกปัดตก</p>
+        <p class="t-thai">ร่างพระราชบัญญัติยกเลิกประกาศและคำสั่งคณะรักษาความสงบแห่งชาติ</p>
+      </article>
+      <article class="card">
+        <div class="chips"><span class="chip"><i style="--c:var(--enacted)"></i><span lang="en">Cabinet decree</span><span lang="th">พระราชกำหนดของ ครม.</span></span><span class="chip"><span lang="en">Became law at once</span><span lang="th">เป็นกฎหมายทันที</span></span></div>
+        <h4><span lang="en">Borrowing by decree</span><span lang="th">กู้เงินด้วยพระราชกำหนด</span></h4>
+        <p lang="en">In 2020 the cabinet authorised 1 trillion baht of COVID borrowing by emergency decree, and another 500 billion in 2021. Both took effect immediately. A new borrowing decree for an energy crisis was issued in May 2026.</p>
+        <p lang="th">ปี 2563 คณะรัฐมนตรีออกพระราชกำหนดให้กู้เงิน 1 ล้านล้านบาทเพื่อรับมือโควิด และอีก 5 แสนล้านบาทในปี 2564 ทั้งสองฉบับมีผลทันที และเมื่อพฤษภาคม 2569 ก็มีพระราชกำหนดกู้เงินฉบับใหม่เพื่อรับมือวิกฤตพลังงาน</p>
+        <p class="t-thai">พระราชกำหนดให้อำนาจกระทรวงการคลังกู้เงิน</p>
+      </article>
+    </div>
+    <div class="prose">
+      <p class="takeaway" lang="en">Parliament passes the government's laws. It rarely writes its own, and citizens almost never get one through.</p>
+      <p class="takeaway" lang="th">สภาผ่านกฎหมายของรัฐบาล แต่แทบไม่ได้เขียนกฎหมายของตัวเอง ส่วนกฎหมายจากประชาชนแทบไม่มีโอกาสผ่านเลย</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="parties">
+    <div class="kicker"><span lang="en">Chapter 2 · Parties that vanish</span><span lang="th">บทที่ 2 · พรรคที่หายไป</span></div>
+    <h2><span lang="en">When parties are dissolved, and when MPs change sides</span><span lang="th">เมื่อพรรคถูกยุบ และเมื่อ ส.ส. ย้ายขั้ว</span></h2>
+    <div class="prose">
+      <p lang="en">Of the 1,098 politicians in the dataset with a party record, <strong>329 have belonged to more than one party</strong> since 2019. They moved for two very different reasons.</p>
+      <p lang="th">จากนักการเมือง 1,098 คนในฐานข้อมูลที่มีประวัติสังกัดพรรค <strong>329 คนเคยอยู่มากกว่าหนึ่งพรรค</strong> ตั้งแต่ปี 2562 และพวกเขาย้ายด้วยเหตุผลที่ต่างกันมาก</p>
+      <p lang="en">Some had no choice. When the court dissolved Future Forward and then Move Forward, their MPs regrouped under a new name. Those moves are shown in grey below.</p>
+      <p lang="th">บางคนไม่มีทางเลือก เมื่อศาลยุบพรรคอนาคตใหม่ และต่อมาคือพรรคก้าวไกล ส.ส. ของพรรคเหล่านี้ต้องไปรวมตัวกันใหม่ภายใต้ชื่อใหม่ การย้ายแบบนี้แสดงด้วยสีเทาในแผนภาพด้านล่าง</p>
+      <p lang="en">Others chose to move. Politigraph records every politician's party memberships as links in a graph, and which parties sat in each government. Joining the two shows where people went. <strong>Most chose a party that was in government at the time.</strong></p>
+      <p lang="th">อีกหลายคนเลือกย้ายเอง Politigraph เก็บข้อมูลการสังกัดพรรคของนักการเมืองทุกคนเป็นเส้นเชื่อมในกราฟ รวมถึงข้อมูลว่าพรรคไหนอยู่ในรัฐบาลแต่ละชุด เมื่อนำสองส่วนนี้มาต่อกัน จะเห็นว่าพวกเขาย้ายไปที่ไหน <strong>ส่วนใหญ่เลือกย้ายไปพรรคที่เป็นรัฐบาลในตอนนั้น</strong></p>
+    </div>
+
+    <div class="term" lang="en">
+      <div class="w">Cobra <span class="thai">งูเห่า · ngu hao</span></div>
+      <p>Thai political slang for an MP who breaks with their own party, often an opposition MP who votes with the government or crosses over to it. It comes from a folk tale about a farmer who saves a frozen cobra, which then bites him.</p>
+    </div>
+    <div class="term" lang="th">
+      <div class="w">งูเห่า</div>
+      <p>คำเรียก ส.ส. ที่แตกแถวจากพรรคของตัวเอง มักใช้กับ ส.ส. ฝ่ายค้านที่ไปโหวตให้รัฐบาล หรือย้ายไปอยู่ฝั่งรัฐบาล มาจากนิทานชาวนากับงูเห่า ที่ชาวนาช่วยงูที่หนาวจนแข็ง แล้วกลับถูกงูกัด</p>
+    </div>
+
+    <figure>
+      <p class="fig-title"><span lang="en">The pull of power</span><span lang="th">แรงดึงดูดของอำนาจ</span></p>
+      <p class="fig-sub"><span lang="en">Each circle is a party, sized by how many politicians in the dataset have belonged to it. Each arrow is a group of politicians who left one party for another. Dots travel along the arrows, one for every few people. Hover or tap a party or an arrow for names.</span><span lang="th">วงกลมแต่ละวงคือพรรคการเมือง ขนาดตามจำนวนนักการเมืองในฐานข้อมูลที่เคยสังกัดพรรคนั้น ลูกศรแต่ละเส้นคือกลุ่มนักการเมืองที่ย้ายจากพรรคหนึ่งไปอีกพรรคหนึ่ง จุดที่วิ่งไปตามลูกศรแทนคนที่ย้าย ชี้หรือแตะที่พรรคหรือลูกศรเพื่อดูรายชื่อ</span></p>
+      <div class="tabs" role="tablist" id="net-tabs"></div>
+      <div class="legend" id="net-legend"></div>
+      <div class="chart" id="network"></div>
+      <p class="net-note" id="net-note"></p>
+      <figcaption lang="en">A move is counted when a person's next party membership starts. The side of the destination party is its side in the cabinet in office on that date, or in the next cabinet formed. Politigraph does not yet record which parties sit in Anutin's cabinets, so for 2025–26 only his own party, Bhumjaithai, and the main opposition, the People's Party, are marked.</figcaption>
+      <figcaption lang="th">นับเป็นการย้ายพรรคเมื่อการเป็นสมาชิกพรรคใหม่เริ่มต้น ฝั่งของพรรคปลายทางดูจากคณะรัฐมนตรีที่อยู่ในตำแหน่งในวันนั้น หรือคณะรัฐมนตรีชุดถัดไปที่ตั้งขึ้น ตอนนี้ Politigraph ยังไม่มีข้อมูลว่าพรรคใดอยู่ในรัฐบาลของอนุทิน ช่วงปี 2568–2569 จึงระบุได้เพียงพรรคภูมิใจไทยของเขาเอง และพรรคประชาชนซึ่งเป็นฝ่ายค้านหลัก</figcaption>
+      <details><summary><span lang="en">Show the numbers</span><span lang="th">ดูตัวเลข</span></summary><div class="tbl" id="net-table"></div></details>
+    </figure>
+    <div class="prose">
+      <p class="takeaway" lang="en">Seats follow power. When a party takes office, politicians move to it.</p>
+      <p class="takeaway" lang="th">ที่นั่งไหลตามอำนาจ พรรคไหนได้เป็นรัฐบาล นักการเมืองก็ย้ายตามไป</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="kingmakers">
+    <div class="kicker"><span lang="en">Chapter 3 · The kingmakers</span><span lang="th">บทที่ 3 · ผู้ชี้ขาด</span></div>
+    <h2><span lang="en">Twice, a rival handed Anutin the job</span><span lang="th">สองครั้งที่คู่แข่งส่งอนุทินขึ้นเป็นนายกฯ</span></h2>
+    <div class="prose">
+      <p lang="en">Thailand's prime minister is elected by the House. The two votes that made Anutin Charnvirakul prime minister show where the power in the network above ends up.</p>
+      <p lang="th">นายกรัฐมนตรีของไทยมาจากการลงมติของสภาผู้แทนราษฎร การลงมติสองครั้งที่ทำให้อนุทิน ชาญวีรกูล ได้เป็นนายกรัฐมนตรี ช่วยให้เห็นว่าอำนาจในเครือข่ายด้านบนไปจบลงที่ไหน</p>
+      <p lang="en">In September 2025 the People's Party, the largest party in the House, did not try to govern. <strong>Its 143 MPs voted for Anutin</strong> in return for his promise to dissolve the House within four months. In March 2026, after the new election, Bhumjaithai had grown from 69 MPs to 191. It still needed help, and <strong>Pheu Thai, whose prime minister Anutin had replaced, gave him 73 votes.</strong></p>
+      <p lang="th">เดือนกันยายน 2568 พรรคประชาชนซึ่งมี ส.ส. มากที่สุดในสภา ไม่ได้พยายามตั้งรัฐบาลเอง แต่ <strong>ส.ส. ทั้ง 143 คนโหวตให้อนุทิน</strong> แลกกับคำสัญญาว่าเขาจะยุบสภาภายในสี่เดือน พอถึงเดือนมีนาคม 2569 หลังการเลือกตั้งใหม่ พรรคภูมิใจไทยโตจาก ส.ส. 69 คนเป็น 191 คน แต่ก็ยังต้องการเสียงเพิ่ม และ<strong>พรรคเพื่อไทย ซึ่งอนุทินเพิ่งขึ้นมาแทนนายกฯ ของพรรค ก็ให้เสียงเขา 73 เสียง</strong></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">69<small>→ 191</small></div><div class="label"><span lang="en">Bhumjaithai MPs voting, September 2025 and March 2026</span><span lang="th">ส.ส. ภูมิใจไทยที่ร่วมลงมติ กันยายน 2568 และมีนาคม 2569</span></div></div>
+      <div class="stat alert"><div class="num">143</div><div class="label"><span lang="en">People's Party votes for Anutin in 2025, from the main opposition</span><span lang="th">เสียงจากพรรคประชาชน ฝ่ายค้านหลัก ที่โหวตให้อนุทินในปี 2568</span></div></div>
+      <div class="stat alert"><div class="num">73</div><div class="label"><span lang="en">Pheu Thai votes for Anutin in 2026, from the party he replaced</span><span lang="th">เสียงจากพรรคเพื่อไทย พรรคที่เขาขึ้นมาแทน ที่โหวตให้อนุทินในปี 2569</span></div></div>
+    </div>
+    <figure>
+      <p class="fig-title"><span lang="en">Every MP's vote for prime minister</span><span lang="th">การลงมติเลือกนายกรัฐมนตรีของ ส.ส. ทุกคน</span></p>
+      <p class="fig-sub"><span lang="en">One dot per MP, grouped by party. Hover or tap a dot for the party and vote.</span><span lang="th">หนึ่งจุดคือ ส.ส. หนึ่งคน แบ่งตามพรรค ชี้หรือแตะที่จุดเพื่อดูพรรคและการลงคะแนน</span></p>
+      <div class="legend" id="pm-legend"></div>
+      <div class="chart" id="pmvote"></div>
+      <p class="net-note" id="pm-note"></p>
+      <figcaption lang="en">Party is as printed in the parliamentary vote record. Parties with fewer than five MPs voting are grouped as “Smaller parties”.</figcaption>
+      <figcaption lang="th">พรรคการเมืองตามที่ระบุในบันทึกการลงมติของรัฐสภา พรรคที่มี ส.ส. ร่วมลงมติน้อยกว่าห้าคนรวมไว้เป็น “พรรคเล็กอื่นๆ”</figcaption>
+      <details><summary><span lang="en">Show the numbers</span><span lang="th">ดูตัวเลข</span></summary><div class="tbl" id="pm-table"></div></details>
+    </figure>
+    <div class="prose">
+      <p class="takeaway" lang="en">Both times, a party that had opposed Anutin supplied the votes that put him over the line.</p>
+      <p class="takeaway" lang="th">ทั้งสองครั้ง พรรคที่เคยอยู่ฝั่งตรงข้ามกับอนุทิน คือผู้ที่ให้เสียงจนเขาได้เป็นนายกฯ</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="votes">
+    <div class="kicker"><span lang="en">Chapter 4 · Inside the chamber</span><span lang="th">บทที่ 4 · ในห้องประชุมสภา</span></div>
+    <h2><span lang="en">Votes are rarely close, and many seats sit empty</span><span lang="th">การลงมติแทบไม่เคยสูสี และเก้าอี้หลายตัวว่างเปล่า</span></h2>
+    <div class="prose">
+      <p lang="en">If the cabinet controls the agenda, the votes themselves should be predictable. They are. In a typical House vote, <strong>about 99% of MPs present pick the same option</strong>.</p>
+      <p lang="th">ถ้าคณะรัฐมนตรีเป็นผู้กำหนดวาระ ผลการลงมติก็น่าจะเดาได้ และก็เป็นอย่างนั้นจริง ในการลงมติของสภาผู้แทนราษฎรโดยทั่วไป <strong>ราว 99% ของ ส.ส. ที่อยู่ในห้องประชุมเลือกเหมือนกัน</strong></p>
+      <p lang="en">That alone is not unusual. Most parliaments with strong party discipline vote along party lines. The Senate is the outlier.</p>
+      <p lang="th">แค่นี้ยังไม่ถือว่าผิดปกติ รัฐสภาส่วนใหญ่ที่พรรคคุมเสียงสมาชิกได้แน่นก็ลงมติตามแนวพรรคเช่นกัน ที่ต่างออกไปจริงๆ คือวุฒิสภา</p>
+      <p lang="en">The Senate is closer to a formality still. The current Senate was chosen in 2024 through a multi-stage selection among candidates rather than a popular vote. It passed <strong>117 of the 119 votes</strong> in the record.</p>
+      <p lang="th">วุฒิสภายิ่งดูเหมือนเป็นแค่พิธีการ วุฒิสภาชุดปัจจุบันได้มาจากการเลือกกันเองหลายขั้นตอนในปี 2567 ไม่ใช่จากการเลือกตั้งของประชาชน และผ่านการลงมติ <strong>117 จาก 119 ครั้ง</strong> ที่มีบันทึกไว้</p>
+    </div>
+
+    <figure>
+      <p class="fig-title"><span lang="en">How one-sided is each vote?</span><span lang="th">การลงมติแต่ละครั้งเทไปทางเดียวแค่ไหน?</span></p>
+      <p class="fig-sub"><span lang="en">Each dot is one vote. Its position is the share of members present who chose the most popular option. 50% is a split chamber; 100% is unanimous.</span><span lang="th">หนึ่งจุดคือการลงมติหนึ่งครั้ง ตำแหน่งของจุดคือสัดส่วนของสมาชิกที่อยู่ในห้องประชุมซึ่งเลือกตัวเลือกที่ได้เสียงมากที่สุด 50% คือสภาแบ่งเป็นสองฝั่งเท่ากัน 100% คือเป็นเอกฉันท์</span></p>
+      <div class="chart" id="strip"></div>
+      <figcaption lang="en">Only votes published in Politigraph are included: 82 from the 25th House, 108 from the 26th, 29 from the 27th, and 119 from the current Senate.</figcaption>
+      <figcaption lang="th">รวมเฉพาะการลงมติที่เผยแพร่ใน Politigraph: สภาชุดที่ 25 จำนวน 82 ครั้ง ชุดที่ 26 จำนวน 108 ครั้ง ชุดที่ 27 จำนวน 29 ครั้ง และวุฒิสภาชุดปัจจุบัน 119 ครั้ง</figcaption>
+    </figure>
+
+    <div class="prose">
+      <p lang="en">Attendance is the other half. The records merge “on leave” and “absent” into a single option, so a missed vote is not always a skipped one. Ministers, for example, miss votes on official duty. Even so, <strong>in the 25th House (2019–2023) the typical MP missed 29% of recorded votes</strong>, and 126 MPs missed more than half.</p>
+      <p lang="th">อีกด้านหนึ่งคือการเข้าประชุม บันทึกการลงมติรวม “ลา” และ “ขาด” ไว้เป็นตัวเลือกเดียวกัน การไม่ได้ลงมติจึงไม่ได้แปลว่าโดดประชุมเสมอไป เช่น รัฐมนตรีอาจติดภารกิจราชการ แต่ถึงอย่างนั้น <strong>ในสภาชุดที่ 25 (2562–2566) ส.ส. โดยทั่วไปไม่ได้ลงมติ 29% ของครั้งที่มีบันทึก</strong> และมี ส.ส. 126 คนที่ไม่ได้ลงมติเกินครึ่ง</p>
+    </div>
+
+    <figure>
+      <p class="fig-title"><span lang="en">How many votes each MP missed</span><span lang="th">ส.ส. แต่ละคนไม่ได้ลงมติมากแค่ไหน</span></p>
+      <p class="fig-sub"><span lang="en">Number of MPs by share of recorded votes missed, per House term. Orange bars are MPs who missed more than half.</span><span lang="th">จำนวน ส.ส. แยกตามสัดส่วนการลงมติที่ไม่ได้เข้าร่วม ในแต่ละสภา แท่งสีส้มคือ ส.ส. ที่ไม่ได้ลงมติเกินครึ่ง</span></p>
+      <div class="chart" id="absence"></div>
+      <figcaption lang="en">MPs with at least 20 recorded votes in the term. The 27th House has only 29 published votes so far.</figcaption>
+      <figcaption lang="th">นับเฉพาะ ส.ส. ที่มีบันทึกการลงมติอย่างน้อย 20 ครั้งในสภาชุดนั้น สภาชุดที่ 27 ยังมีการลงมติที่เผยแพร่เพียง 29 ครั้ง</figcaption>
+    </figure>
+    <div class="prose">
+      <h3 class="subhead"><span lang="en">The prime minister's empty seat</span><span lang="th">เก้าอี้ที่ว่างของนายกรัฐมนตรี</span></h3>
+      <p lang="en">Prime minister Anutin Charnvirakul has been an elected MP through all three House terms in the record. <strong>He missed 190 of the 217 House votes recorded, or 88%.</strong> Since he became prime minister in September 2025, he has voted in 2 of 42 recorded votes, counting joint sittings.</p>
+      <p lang="th">นายกรัฐมนตรีอนุทิน ชาญวีรกูล เป็น ส.ส. มาตลอดทั้งสามสภาในฐานข้อมูล <strong>เขาไม่ได้ลงมติ 190 จาก 217 ครั้งที่มีบันทึก หรือ 88%</strong> และตั้งแต่เป็นนายกรัฐมนตรีเมื่อกันยายน 2568 เขาลงมติเพียง 2 จาก 42 ครั้ง (รวมการประชุมร่วมรัฐสภา)</p>
+      <p lang="en">That puts him in the top 1% of absentees in every term: 7th of 486 MPs, then 4th of 504, then 3rd of 496. He is not the single most absent MP, and ministers in general miss far more votes than other MPs. The three prime ministers before him were not MPs, so they have no voting record to compare against.</p>
+      <p lang="th">ตัวเลขนี้ทำให้เขาอยู่ในกลุ่ม 1% ที่ไม่ได้ลงมติมากที่สุดในทุกสภา คืออันดับ 7 จาก 486 คน อันดับ 4 จาก 504 คน และอันดับ 3 จาก 496 คน แต่เขาไม่ใช่ ส.ส. ที่ขาดมากที่สุด และโดยรวมแล้วรัฐมนตรีก็ขาดการลงมติบ่อยกว่า ส.ส. ทั่วไปอยู่แล้ว ส่วนนายกรัฐมนตรีสามคนก่อนหน้าเขาไม่ได้เป็น ส.ส. จึงไม่มีบันทึกการลงมติให้เปรียบเทียบ</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat alert"><div class="num">88%</div><div class="label"><span lang="en">of recorded House votes missed by Anutin, 2019–2026</span><span lang="th">ของการลงมติในสภาที่อนุทินไม่ได้ร่วม ปี 2562–2569</span></div></div>
+      <div class="stat"><div class="num">68%</div><div class="label"><span lang="en">missed by MPs while serving as ministers, 26th House</span><span lang="th">ที่ ส.ส. ไม่ได้ลงมติระหว่างเป็นรัฐมนตรี สภาชุดที่ 26</span></div></div>
+      <div class="stat"><div class="num">~2%</div><div class="label"><span lang="en">missed by the typical member of the US House of Representatives in 2024</span><span lang="th">ที่สมาชิกสภาผู้แทนราษฎรสหรัฐฯ โดยทั่วไปไม่ได้ลงมติ ในปี 2567</span></div></div>
+    </div>
+
+    <figure>
+      <p class="fig-title"><span lang="en">How Thailand's absences compare with other parliaments</span><span lang="th">การไม่ได้ลงมติของไทย เทียบกับรัฐสภาอื่น</span></p>
+      <p class="fig-sub"><span lang="en">Share of votes or sittings missed. The measures differ between countries, so read these as a rough scale, not an exact ranking.</span><span lang="th">สัดส่วนการลงมติหรือการประชุมที่ไม่ได้เข้าร่วม แต่ละประเทศวัดต่างกัน จึงควรดูเป็นภาพคร่าวๆ ไม่ใช่การจัดอันดับที่แม่นยำ</span></p>
+      <div class="legend">
+        <span><i class="sw bar" style="background:var(--fall)"></i><span lang="en">Thailand's prime minister</span><span lang="th">นายกรัฐมนตรีไทย</span></span>
+        <span><i class="sw bar" style="background:var(--enacted)"></i><span lang="en">Thailand</span><span lang="th">ไทย</span></span>
+        <span><i class="sw bar" style="background:var(--forced)"></i><span lang="en">Other parliaments</span><span lang="th">รัฐสภาอื่น</span></span>
+      </div>
+      <div class="chart" id="bench"></div>
+      <figcaption lang="en">Thailand: recorded House votes, where “on leave” and “absent” count as missed. US: median member's missed roll-call votes, 2024 (GovTrack). India: 100% minus the average attendance of MPs, 17th Lok Sabha, 2019–2024 (PRS Legislative Research). This counts sittings attended, not votes. European Parliament: 100% minus the typical 82–87% attendance of MEPs (Brussels Signal, 2026); the bar shows the midpoint.</figcaption>
+      <figcaption lang="th">ไทย: การลงมติในสภาผู้แทนราษฎรที่มีบันทึก นับ “ลา” และ “ขาด” เป็นการไม่ได้ลงมติ สหรัฐฯ: ค่ากลางของการลงมติแบบขานชื่อที่สมาชิกไม่ได้เข้าร่วม ปี 2567 (GovTrack) อินเดีย: 100% ลบด้วยอัตราการเข้าประชุมเฉลี่ยของ ส.ส. โลกสภาชุดที่ 17 ปี 2562–2567 (PRS Legislative Research) ซึ่งนับการเข้าประชุม ไม่ใช่การลงมติ รัฐสภายุโรป: 100% ลบด้วยอัตราการเข้าประชุม 82–87% ของสมาชิกโดยทั่วไป (Brussels Signal, 2569) แท่งแสดงค่ากึ่งกลาง</figcaption>
+      <details><summary><span lang="en">Show the numbers</span><span lang="th">ดูตัวเลข</span></summary><div class="tbl" id="bench-table"></div></details>
+    </figure>
+    <div class="prose">
+      <p class="takeaway" lang="en">Once a government forms, the chamber rarely pushes back, and the prime minister rarely votes in the House.</p>
+      <p class="takeaway" lang="th">เมื่อรัฐบาลตั้งขึ้นแล้ว สภาแทบไม่เคยคัดค้าน และนายกรัฐมนตรีก็แทบไม่ได้ร่วมลงมติในสภา</p>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="kicker"><span lang="en">What the record shows</span><span lang="th">สิ่งที่บันทึกบอกเรา</span></div>
+    <h2><span lang="en">A parliament that approves more than it decides</span><span lang="th">รัฐสภาที่รับรองมากกว่าตัดสินใจ</span></h2>
+    <ol lang="en">
+      <li><strong>Governments are short-lived.</strong> Since 2023, courts and snap elections have ended cabinets faster than the four-year term was built for.</li>
+      <li><strong>Laws come from the executive.</strong> Cabinet bills and emergency decrees become law. Bills from elected MPs and citizens almost never do.</li>
+      <li><strong>Parties are unstable.</strong> Court dissolutions erase the largest opposition party's name, and politicians move towards whoever holds power.</li>
+      <li><strong>Rivals make the prime minister.</strong> In 2025 and 2026, a party that had opposed Anutin gave him the votes he needed.</li>
+      <li><strong>Most votes are near-unanimous.</strong> Attendance is patchy too, including the prime minister's.</li>
+      <li><strong>The rulebook is up for renewal.</strong> In February 2026, 60% of voters backed a new constitution. Who writes it, and whether the Senate lets it through, is the next fight.</li>
+    </ol>
+    <ol lang="th">
+      <li><strong>รัฐบาลอยู่ได้ไม่นาน</strong> ตั้งแต่ปี 2566 ศาลและการยุบสภาทำให้คณะรัฐมนตรีจบลงเร็วกว่าวาระสี่ปีที่ออกแบบไว้</li>
+      <li><strong>กฎหมายมาจากฝ่ายบริหาร</strong> ร่างกฎหมายของคณะรัฐมนตรีและพระราชกำหนดได้เป็นกฎหมาย ส่วนร่างของ ส.ส. และประชาชนแทบไม่เคยผ่าน</li>
+      <li><strong>พรรคการเมืองไม่มั่นคง</strong> การยุบพรรคลบชื่อพรรคฝ่ายค้านที่ใหญ่ที่สุด และนักการเมืองก็ย้ายไปหาฝั่งที่ถืออำนาจ</li>
+      <li><strong>คู่แข่งเป็นคนเลือกนายกฯ</strong> ในปี 2568 และ 2569 พรรคที่เคยอยู่ฝั่งตรงข้ามกับอนุทิน คือผู้ให้เสียงที่เขาต้องการ</li>
+      <li><strong>การลงมติส่วนใหญ่เกือบเป็นเอกฉันท์</strong> และการเข้าร่วมลงมติก็ไม่สม่ำเสมอ รวมถึงของนายกรัฐมนตรีด้วย</li>
+      <li><strong>กติกากำลังจะถูกเขียนใหม่</strong> กุมภาพันธ์ 2569 ประชาชน 60% เห็นชอบให้มีรัฐธรรมนูญใหม่ ใครจะได้เขียน และวุฒิสภาจะยอมให้ผ่านหรือไม่ คือการต่อสู้ครั้งต่อไป</li>
+    </ol>
+  </section>
+
+  <div class="method prose">
+    <h3><span lang="en">Method and sources</span><span lang="th">วิธีการและแหล่งข้อมูล</span></h3>
+    <ul lang="en">
+      <li>All figures come from <a href="https://politigraph.wevis.info">Politigraph</a>, an open graph database of Thai parliamentary data maintained by <a href="https://wevis.info">WeVis</a>, downloaded on 25 September 2026. Licensed CC BY-NC 4.0.</li>
+      <li>Vote records are scraped from the Parliament Secretariat system and published only after review, so coverage is incomplete: very few 2023 votes are included, and votes of the previous Senate are mostly missing.</li>
+      <li>Party switching uses each person's party membership records. A move is counted each time a person's party changes.</li>
+      <li>This story focuses on elections, parliament and the courts.</li>
+      <li>“Rejected or lapsed” is Politigraph's REJECTED status.</li>
+      <li>Election results: Wikipedia pages for the <a href="https://en.wikipedia.org/wiki/2019_Thai_general_election">2019</a>, <a href="https://en.wikipedia.org/wiki/2023_Thai_general_election">2023</a> and <a href="https://en.wikipedia.org/wiki/2026_Thai_general_election">2026</a> general elections. Coup count: <a href="https://www.europarl.europa.eu/RegData/etudes/ATAG/2020/659330/EPRS_ATA(2020)659330_EN.pdf">European Parliament Research Service, 2020</a>; counts differ between sources. The 2001–2014 background is from public reporting.</li>
+      <li>The prologue timeline and the reasons each cabinet ended come from public reporting, not from the dataset. Events marked “in dataset” can be checked against Politigraph's records.</li>
+      <li>Other parliaments: <a href="https://www.govtrack.us/congress/members/report-cards/2024/house/missed-votes">GovTrack 2024 report card, missed votes</a>; <a href="https://prsindia.org/parliamenttrack/vital-stats/participation-of-mps-in-the-17th-lok-sabha">PRS Legislative Research, participation of MPs in the 17th Lok Sabha</a>; <a href="https://brusselssignal.eu/2026/04/no-show-hungarian-mep-peter-magyar-only-votes-1-9-per-cent-of-the-time-in-ep/">Brussels Signal on MEP attendance</a>; <a href="https://www.hansardsociety.org.uk/publications/guides/private-members-bills-new">Hansard Society, private members' bills</a> (118 of 2,839 received Royal Assent, 2010–2026).</li>
+      <li>Party logos come from Politigraph (WeVis) and are used to identify each party.</li>
+      <li>Constitution: section text from <a href="https://www.constituteproject.org/constitution/Thailand_2017">Constitute Project</a>. Rewrite attempts: <a href="https://www.bangkokpost.com/thailand/politics/2021823/ilaw-charter-draft-favoured-by-protesters-rejected">Bangkok Post</a> (November 2020), <a href="https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2021-47-thailands-constitutional-amendment-process-halted-in-its-tracks-by-termsak-chalermpalanupap/">ISEAS</a> (March 2021). 2026 referendum results: <a href="https://en.wikipedia.org/wiki/2026_Thai_constitutional_referendum">Wikipedia</a>, with context from <a href="https://constitutionnet.org/news/voices/thailands-2026-constitutional-referendum-step-towards-reform-or-symbolic-victory">ConstitutionNet</a>. The 2026 drafting dispute: <a href="https://www.thaiexaminer.com/thai-news-foreigners/2026/06/10/civil-society-groups-launch-move-to-push-a-public-amendment-option-over-fears-of-blue-regime-charter/">Thai Examiner</a>. The 2024 Senate vote on the court's judges is from Politigraph.</li>
+      <li>The COVID borrowing amounts and the context of the prime-minister votes come from public reporting. The vote counts are from Politigraph.</li>
+    </ul>
+    <ul lang="th">
+      <li>ตัวเลขทั้งหมดมาจาก <a href="https://politigraph.wevis.info">Politigraph</a> ฐานข้อมูลกราฟแบบเปิดของข้อมูลรัฐสภาไทย ดูแลโดย <a href="https://wevis.info">WeVis</a> ดาวน์โหลดเมื่อวันที่ 25 กันยายน 2569 เผยแพร่ภายใต้สัญญาอนุญาต CC BY-NC 4.0</li>
+      <li>ข้อมูลการลงมติดึงมาจากระบบของสำนักงานเลขาธิการสภาผู้แทนราษฎร และเผยแพร่หลังผ่านการตรวจสอบแล้วเท่านั้น ข้อมูลจึงยังไม่ครบ: การลงมติในปี 2566 มีน้อยมาก และการลงมติของวุฒิสภาชุดก่อนส่วนใหญ่ยังไม่มี</li>
+      <li>การย้ายพรรคนับจากข้อมูลการเป็นสมาชิกพรรคของแต่ละคน นับหนึ่งครั้งทุกครั้งที่พรรคเปลี่ยน</li>
+      <li>เรื่องนี้เน้นที่การเลือกตั้ง รัฐสภา และศาล</li>
+      <li>“ถูกปัดตกหรือตกไป” คือสถานะ REJECTED ใน Politigraph</li>
+      <li>ผลการเลือกตั้ง: วิกิพีเดีย การเลือกตั้งทั่วไป <a href="https://en.wikipedia.org/wiki/2019_Thai_general_election">2562</a> <a href="https://en.wikipedia.org/wiki/2023_Thai_general_election">2566</a> และ <a href="https://en.wikipedia.org/wiki/2026_Thai_general_election">2569</a> จำนวนรัฐประหาร: <a href="https://www.europarl.europa.eu/RegData/etudes/ATAG/2020/659330/EPRS_ATA(2020)659330_EN.pdf">European Parliament Research Service, 2020</a> ซึ่งแต่ละแหล่งนับต่างกัน ส่วนปูมหลังปี 2544–2557 มาจากการรายงานข่าว</li>
+      <li>ไทม์ไลน์ในบทนำและเหตุผลที่คณะรัฐมนตรีแต่ละชุดสิ้นสุดลง มาจากการรายงานข่าว ไม่ได้มาจากฐานข้อมูล เหตุการณ์ที่ระบุว่า “มีในฐานข้อมูล” ตรวจสอบกับข้อมูลของ Politigraph ได้</li>
+      <li>รัฐสภาอื่น: <a href="https://www.govtrack.us/congress/members/report-cards/2024/house/missed-votes">GovTrack รายงานการไม่ได้ลงมติ ปี 2024</a>; <a href="https://prsindia.org/parliamenttrack/vital-stats/participation-of-mps-in-the-17th-lok-sabha">PRS Legislative Research การเข้าประชุมของ ส.ส. โลกสภาชุดที่ 17</a>; <a href="https://brusselssignal.eu/2026/04/no-show-hungarian-mep-peter-magyar-only-votes-1-9-per-cent-of-the-time-in-ep/">Brussels Signal เรื่องการเข้าประชุมของสมาชิกรัฐสภายุโรป</a>; <a href="https://www.hansardsociety.org.uk/publications/guides/private-members-bills-new">Hansard Society ร่างกฎหมายของ ส.ส. อังกฤษ</a> (ผ่านเป็นกฎหมาย 118 จาก 2,839 ฉบับ ปี 2553–2569)</li>
+      <li>โลโก้พรรคการเมืองมาจาก Politigraph (WeVis) ใช้เพื่อระบุพรรคเท่านั้น</li>
+      <li>รัฐธรรมนูญ: ตัวบทจาก <a href="https://www.constituteproject.org/constitution/Thailand_2017">Constitute Project</a> ความพยายามแก้รัฐธรรมนูญ: <a href="https://www.bangkokpost.com/thailand/politics/2021823/ilaw-charter-draft-favoured-by-protesters-rejected">Bangkok Post</a> (พฤศจิกายน 2563) และ <a href="https://www.iseas.edu.sg/articles-commentaries/iseas-perspective/2021-47-thailands-constitutional-amendment-process-halted-in-its-tracks-by-termsak-chalermpalanupap/">ISEAS</a> (มีนาคม 2564) ผลประชามติ 2569: <a href="https://en.wikipedia.org/wiki/2026_Thai_constitutional_referendum">Wikipedia</a> และ <a href="https://constitutionnet.org/news/voices/thailands-2026-constitutional-referendum-step-towards-reform-or-symbolic-victory">ConstitutionNet</a> ข้อถกเถียงเรื่องการร่างปี 2569: <a href="https://www.thaiexaminer.com/thai-news-foreigners/2026/06/10/civil-society-groups-launch-move-to-push-a-public-amendment-option-over-fears-of-blue-regime-charter/">Thai Examiner</a> ส่วนการลงมติของวุฒิสภาเรื่องตุลาการศาลรัฐธรรมนูญปี 2567 มาจาก Politigraph</li>
+      <li>ยอดเงินกู้ช่วงโควิดและบริบทของการลงมติเลือกนายกรัฐมนตรีมาจากการรายงานข่าว ส่วนจำนวนคะแนนเสียงมาจาก Politigraph</li>
+    </ul>
+  </div>
+</div>
+
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const DATA = /*DATA*/null;
+const NS = "http://www.w3.org/2000/svg";
+
+/* ---------- Text in both languages (rebuilt whenever the language changes) ---------- */
+let CABINETS, MINISTRY_EN, MINISTRY_TH, STATUS, GROUPS, EDGE_KIND, PM_RIVAL, VOTE_KIND, CHAMBERS, KINDS, EVENTS, MONTHS, RULERS, MOMENTS, NET_PERIODS;
+function defineText() {
+  CABINETS = {
+    62: { pm: L("Prayut Chan-o-cha", "ประยุทธ์ จันทร์โอชา"), end: L("Ended after the 2023 election", "สิ้นสุดหลังการเลือกตั้งปี 2566") },
+    63: { pm: L("Srettha Thavisin", "เศรษฐา ทวีสิน"), end: L("Removed by the Constitutional Court", "ศาลรัฐธรรมนูญให้พ้นจากตำแหน่ง") },
+    64: { pm: L("Paetongtarn Shinawatra", "แพทองธาร ชินวัตร"), end: L("Removed by the Constitutional Court", "ศาลรัฐธรรมนูญให้พ้นจากตำแหน่ง") },
+    65: { pm: L("Anutin Charnvirakul", "อนุทิน ชาญวีรกูล"), end: L("House dissolved for a snap election", "ยุบสภาเพื่อเลือกตั้งใหม่") },
+    66: { pm: L("Anutin Charnvirakul", "อนุทิน ชาญวีรกูล"), end: L("In office", "อยู่ในตำแหน่ง") }
+  };
+  MINISTRY_EN = {
+    "การท่องเที่ยวและกีฬา": "Tourism and Sports", "กลาโหม": "Defence", "ทรัพยากรธรรมชาติและสิ่งแวดล้อม": "Natural Resources", "วัฒนธรรม": "Culture",
+    "พลังงาน": "Energy", "สาธารณสุข": "Public Health", "การคลัง": "Finance", "อุตสาหกรรม": "Industry", "พาณิชย์": "Commerce", "การต่างประเทศ": "Foreign Affairs"
+  };
+  MINISTRY_TH = { "การท่องเที่ยวและกีฬา": "ท่องเที่ยวและกีฬา", "ทรัพยากรธรรมชาติและสิ่งแวดล้อม": "ทรัพยากรธรรมชาติฯ", "การคลัง": "การคลัง", "การต่างประเทศ": "การต่างประเทศ" };
+  STATUS = {
+    ENACTED: [L("Became law", "ได้เป็นกฎหมาย"), "--enacted"],
+    MERGED: [L("Merged into another bill", "ถูกรวมเข้ากับร่างอื่น"), "--merged"],
+    IN_PROGRESS: [L("Still in progress", "อยู่ระหว่างพิจารณา"), "--pending"],
+    REJECTED: [L("Rejected or lapsed", "ถูกปัดตกหรือตกไป"), null]
+  };
+  GROUPS = [
+    { key: "cabinet", name: L("Cabinet bills", "ร่างกฎหมายของคณะรัฐมนตรี"), test: b => b[0] === "ASSEMBLY" && !b[4] },
+    { key: "decree", name: L("Emergency decrees (issued by the cabinet)", "พระราชกำหนด (ออกโดยคณะรัฐมนตรี)"), test: b => b[4] },
+    { key: "mp", name: L("Bills from MPs", "ร่างกฎหมายของ ส.ส."), test: b => b[0] === "POLITICIAN" },
+    { key: "people", name: L("Bills from citizens (10,000+ signatures)", "ร่างกฎหมายของประชาชน (10,000 รายชื่อขึ้นไป)"), test: b => b[0] === "PEOPLE" }
+  ];
+  EDGE_KIND = {
+    gov: [L("Moved into a government party", "ย้ายเข้าพรรครัฐบาล"), "--fall"],
+    opp: [L("Moved into an opposition party", "ย้ายเข้าพรรคฝ่ายค้าน"), "--merged"],
+    unknown: [L("Side not recorded", "ไม่มีข้อมูลว่าอยู่ฝั่งไหน"), "--rejected"],
+    both: [L("Side not recorded", "ไม่มีข้อมูลว่าอยู่ฝั่งไหน"), "--rejected"],
+    forced: [L("Forced: party dissolved by the court", "ถูกบังคับ: พรรคถูกศาลยุบ"), "--forced"]
+  };
+  PM_RIVAL = {
+    "2025-09-05": [L("Chaikasem Nitisiri", "ชัยเกษม นิติสิริ"), "Pheu Thai", "เพื่อไทย", "ประชาชน"],
+    "2026-03-19": [L("Natthaphong Ruengpanyawut", "ณัฐพงษ์ เรืองปัญญาวุฒิ"), "People's Party", "ประชาชน", "เพื่อไทย"]
+  };
+  VOTE_KIND = {
+    anutin: [L("For Anutin", "โหวตให้อนุทิน"), "--char"],
+    rival: [L("For the rival candidate", "โหวตให้คู่แข่ง"), "--merged"],
+    abstain: [L("Abstained", "งดออกเสียง"), null],
+    absent: [L("Absent", "ไม่ได้ลงมติ"), "--forced"]
+  };
+  CHAMBERS = [
+    ["สภาผู้แทนราษฎร-25", L("25th House", "สภาชุดที่ 25"), L("2019–23", "2562–66")],
+    ["สภาผู้แทนราษฎร-26", L("26th House", "สภาชุดที่ 26"), L("2023–25", "2566–68")],
+    ["สภาผู้แทนราษฎร-27", L("27th House", "สภาชุดที่ 27"), L("2026–", "2569–")],
+    ["วุฒิสภา-13", L("Senate", "วุฒิสภา"), L("2024–", "2567–")]
+  ];
+  KINDS = {
+    military: [L("Military", "ทหาร"), "--ink"],
+    court: [L("Court ruling", "คำตัดสินศาล"), "--fall"],
+    protest: [L("Protest", "การชุมนุม"), "--merged"],
+    vote: [L("Election or referendum", "การเลือกตั้งหรือประชามติ"), "--pending"],
+    power: [L("Change of government", "การเปลี่ยนรัฐบาล"), "--enacted"],
+    charter: [L("Constitution", "รัฐธรรมนูญ"), "--charter"]
+  };
+  EVENTS = [
+    ["era", L("Military rule", "ยุครัฐบาลทหาร")],
+    ["2014-05-22", "military", L("Army chief Prayut Chan-o-cha stages a coup", "พล.อ. ประยุทธ์ จันทร์โอชา ผู้บัญชาการทหารบก ทำรัฐประหาร"), L("The military removes the elected government and suspends the constitution.", "กองทัพล้มรัฐบาลที่มาจากการเลือกตั้ง และยกเลิกรัฐธรรมนูญ")],
+    ["2014-08", "power", L("Prayut makes himself prime minister", "ประยุทธ์ขึ้นเป็นนายกรัฐมนตรีเอง"), L("A legislature appointed by the junta votes him in. No election is held for almost five years.", "สภานิติบัญญัติที่คณะรัฐประหารแต่งตั้งโหวตให้เขา และไม่มีการเลือกตั้งอีกเกือบห้าปี")],
+    ["2016-08-07", "vote", L("Voters approve the junta's constitution", "ประชาชนลงประชามติรับรัฐธรรมนูญของคณะรัฐประหาร"), L("Campaigning against it was restricted. It lets 250 senators, all appointed by the junta, vote on the prime minister for five years.", "การรณรงค์ไม่รับร่างถูกจำกัด รัฐธรรมนูญฉบับนี้ให้ ส.ว. 250 คน ซึ่งคณะรัฐประหารแต่งตั้งทั้งหมด ร่วมเลือกนายกรัฐมนตรีได้ในห้าปีแรก")],
+    ["2017-04-06", "charter", L("The junta's constitution takes effect", "รัฐธรรมนูญของคณะรัฐประหารมีผลบังคับใช้"), L("The 2017 Constitution sets the rules for everything that follows. See “The rulebook” below.", "รัฐธรรมนูญ 2560 วางกติกาให้ทุกอย่างที่ตามมา ดูหัวข้อ “กติกา” ด้านล่าง")],
+    ["era", L("Elections under the junta's rules", "การเลือกตั้งภายใต้กติกาของคณะรัฐประหาร")],
+    ["2019-03-24", "vote", L("First election since the coup", "การเลือกตั้งครั้งแรกหลังรัฐประหาร"), L("Pheu Thai wins the most seats, but Palang Pracharath, which nominated Prayut, builds a coalition. The new party Future Forward comes third.", "พรรคเพื่อไทยได้ที่นั่งมากที่สุด แต่พรรคพลังประชารัฐซึ่งเสนอชื่อประยุทธ์เป็นผู้รวมเสียงตั้งรัฐบาล ส่วนพรรคอนาคตใหม่ซึ่งเป็นพรรคใหม่ได้อันดับสาม")],
+    ["2019-06-05", "power", L("Parliament keeps Prayut as prime minister", "รัฐสภาเลือกประยุทธ์เป็นนายกฯ ต่อ"), L("The appointed senators vote for him almost as one bloc.", "ส.ว. แต่งตั้งโหวตให้เขาแทบทั้งหมด"), true],
+    ["2020-02-21", "court", L("Court dissolves Future Forward", "ศาลยุบพรรคอนาคตใหม่"), L("The ruling is over a loan from its founder. Its MPs regroup as Move Forward.", "คดีเกี่ยวกับเงินกู้จากผู้ก่อตั้งพรรค ส.ส. ของพรรคไปรวมตัวกันใหม่เป็นพรรคก้าวไกล"), true],
+    ["2020-07", "protest", L("Youth-led protests fill the streets", "การชุมนุมของคนรุ่นใหม่ขยายไปทั่วประเทศ"), L("Students demand that Prayut resign and that a new constitution be written.", "นักศึกษาเรียกร้องให้ประยุทธ์ลาออก และให้มีรัฐธรรมนูญฉบับใหม่")],
+    ["2020-10-15", "protest", L("Emergency decree bans gatherings in Bangkok", "ประกาศสถานการณ์ฉุกเฉิน ห้ามชุมนุมในกรุงเทพฯ"), L("Protest leaders are arrested.", "แกนนำการชุมนุมถูกจับกุม")],
+    ["2020-11-18", "charter", L("Parliament rejects a citizens' constitution", "รัฐสภาปัดตกร่างรัฐธรรมนูญฉบับประชาชน"), L("A draft backed by 100,732 signatures fails for lack of senators' votes.", "ร่างที่มีผู้ลงชื่อ 100,732 คน ไม่ผ่านเพราะได้เสียง ส.ว. ไม่พอ")],
+    ["2021-03-17", "charter", L("The charter rewrite fails", "การแก้รัฐธรรมนูญทั้งฉบับไม่ผ่าน"), L("The bill gets 208 votes at its final reading. It needed 369.", "ร่างได้ 208 เสียงในวาระสุดท้าย จาก 369 เสียงที่ต้องการ")],
+    ["2022-08-24", "court", L("Court suspends Prayut over his term limit", "ศาลสั่งให้ประยุทธ์หยุดปฏิบัติหน้าที่ กรณีวาระแปดปี"), L("A month later it rules that he can stay in office.", "หนึ่งเดือนต่อมา ศาลวินิจฉัยว่าเขาอยู่ในตำแหน่งต่อได้")],
+    ["era", L("The 2023 election and after", "การเลือกตั้งปี 2566 และหลังจากนั้น")],
+    ["2023-05-14", "vote", L("Move Forward wins the most seats", "พรรคก้าวไกลได้ที่นั่งมากที่สุด"), L("The reformist party that grew out of the protests comes first, with 151 of 500 seats.", "พรรคที่ต้องการปฏิรูปและเติบโตมาจากกระแสการชุมนุมได้อันดับหนึ่ง 151 จาก 500 ที่นั่ง")],
+    ["2023-07-13", "power", L("Appointed senators block Move Forward's candidate", "ส.ว. แต่งตั้งขวางแคนดิเดตนายกฯ ของก้าวไกล"), L("Pita Limjaroenrat falls short of a majority when most appointed senators refuse to back him.", "พิธา ลิ้มเจริญรัตน์ ได้เสียงไม่ถึงเกณฑ์ เพราะ ส.ว. ส่วนใหญ่ไม่โหวตให้")],
+    ["2023-08-22", "power", L("Srettha Thavisin becomes prime minister", "เศรษฐา ทวีสิน เป็นนายกรัฐมนตรี"), L("Pheu Thai, which came second, forms a coalition that includes parties from Prayut's camp.", "พรรคเพื่อไทยซึ่งได้อันดับสอง ตั้งรัฐบาลผสมร่วมกับพรรคจากขั้วของประยุทธ์"), true],
+    ["2024-08-07", "court", L("Court dissolves Move Forward", "ศาลยุบพรรคก้าวไกล"), L("Its MPs regroup as the People's Party.", "ส.ส. ของพรรคไปรวมตัวกันใหม่เป็นพรรคประชาชน"), true],
+    ["2024-08-14", "court", L("Court removes Srettha", "ศาลให้เศรษฐาพ้นจากตำแหน่ง"), L("It rules he broke ethics rules by appointing a minister who had served a jail sentence.", "ศาลวินิจฉัยว่าเขาผิดจริยธรรม จากการแต่งตั้งรัฐมนตรีที่เคยต้องโทษจำคุก"), true],
+    ["2024-08-16", "power", L("Paetongtarn Shinawatra becomes prime minister", "แพทองธาร ชินวัตร เป็นนายกรัฐมนตรี"), L("At 37, Thaksin Shinawatra's daughter is the youngest prime minister in Thai history.", "ในวัย 37 ปี ลูกสาวของทักษิณ ชินวัตร เป็นนายกรัฐมนตรีที่อายุน้อยที่สุดในประวัติศาสตร์ไทย"), true],
+    ["2025-07-01", "court", L("Court suspends Paetongtarn", "ศาลสั่งให้แพทองธารหยุดปฏิบัติหน้าที่"), L("The case is over a leaked phone call with Cambodia's former leader Hun Sen during a border dispute.", "คดีคลิปเสียงสนทนากับฮุน เซน อดีตผู้นำกัมพูชา ที่หลุดออกมาช่วงข้อพิพาทชายแดน")],
+    ["2025-08-29", "court", L("Court removes Paetongtarn", "ศาลให้แพทองธารพ้นจากตำแหน่ง"), L("She is the second prime minister in a year to be removed by the court.", "เธอเป็นนายกรัฐมนตรีคนที่สองในรอบหนึ่งปีที่ศาลให้พ้นจากตำแหน่ง"), true],
+    ["2025-09-05", "power", L("Anutin Charnvirakul becomes prime minister", "อนุทิน ชาญวีรกูล เป็นนายกรัฐมนตรี"), L("The People's Party backs him from outside government in exchange for a promise to dissolve the House within four months.", "พรรคประชาชนสนับสนุนเขาโดยไม่เข้าร่วมรัฐบาล แลกกับคำสัญญาว่าจะยุบสภาภายในสี่เดือน"), true],
+    ["2025-12-12", "vote", L("Anutin dissolves the House", "อนุทินยุบสภา"), L("An early election is called after 84 days of his first cabinet.", "มีการเลือกตั้งก่อนกำหนด หลังคณะรัฐมนตรีชุดแรกของเขาอยู่ได้ 84 วัน"), true],
+    ["2026-02-08", "charter", L("Voters back a new constitution", "ประชามติเห็นชอบให้มีรัฐธรรมนูญใหม่"), L("60% vote yes in a referendum held with the general election.", "60% ลงมติเห็นชอบ ในประชามติที่จัดพร้อมการเลือกตั้งทั่วไป")],
+    ["2026-03", "power", L("New House opens, Anutin stays", "สภาชุดใหม่เปิดประชุม อนุทินได้ไปต่อ"), L("The 27th House sits from 14 March 2026. Anutin forms his second cabinet on 30 March.", "สภาผู้แทนราษฎรชุดที่ 27 เริ่มประชุมวันที่ 14 มีนาคม 2569 และอนุทินตั้งคณะรัฐมนตรีชุดที่สองในวันที่ 30 มีนาคม"), true]
+  ];
+  MONTHS = LANG === "th"
+    ? ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."]
+    : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  RULERS = [
+    ["2014-05-22", "2019-07-10", L("Military junta", "คณะรัฐประหาร"), L("Prayut Chan-o-cha, army chief", "พล.อ. ประยุทธ์ จันทร์โอชา ผู้บัญชาการทหารบก"), "--ink"],
+    ["2019-07-10", "2023-09-01", L("Prayut", "ประยุทธ์"), L("Prayut Chan-o-cha, after the 2019 election", "ประยุทธ์ จันทร์โอชา หลังการเลือกตั้งปี 2562"), "--enacted"],
+    ["2023-09-01", "2024-08-14", L("Srettha", "เศรษฐา"), L("Srettha Thavisin", "เศรษฐา ทวีสิน"), "--enacted"],
+    ["2024-09-04", "2025-08-29", L("Paetongtarn", "แพทองธาร"), L("Paetongtarn Shinawatra", "แพทองธาร ชินวัตร"), "--enacted"],
+    ["2025-09-19", null, L("Anutin", "อนุทิน"), L("Anutin Charnvirakul", "อนุทิน ชาญวีรกูล"), "--enacted"]
+  ];
+  MOMENTS = [
+    ["2014-05-22", "military", L("Army coup", "รัฐประหาร")],
+    ["2017-04-06", "charter", L("2017 Constitution", "รัฐธรรมนูญ 2560")],
+    ["2019-03-24", "vote", L("First election after the coup", "เลือกตั้งครั้งแรกหลังรัฐประหาร")],
+    ["2020-02-21", "court", L("Future Forward dissolved", "ยุบพรรคอนาคตใหม่")],
+    ["2020-07-18", "protest", L("Youth protests begin", "การชุมนุมของคนรุ่นใหม่เริ่มขึ้น")],
+    ["2023-05-14", "vote", L("Move Forward wins, is blocked", "ก้าวไกลชนะ แต่ถูกขวาง")],
+    ["2024-08-07", "court", L("Move Forward dissolved", "ยุบพรรคก้าวไกล")],
+    ["2024-08-14", "court", L("Srettha removed", "เศรษฐาพ้นตำแหน่ง")],
+    ["2025-08-29", "court", L("Paetongtarn removed", "แพทองธารพ้นตำแหน่ง")],
+    ["2025-12-12", "vote", L("House dissolved", "ยุบสภา")],
+    ["2026-02-08", "charter", L("Referendum: new charter", "ประชามติ: รัฐธรรมนูญใหม่")]
+  ];
+  NET_PERIODS = {
+    all: L("All years", "ทุกปี"),
+    prayut: L("Prayut, 2019–23", "ยุคประยุทธ์ 2562–66"),
+    pheuthai: L("Srettha and Paetongtarn, 2023–25", "ยุคเศรษฐาและแพทองธาร 2566–68"),
+    anutin: L("Anutin, 2025–26", "ยุคอนุทิน 2568–69")
+  };
+}
+
+/* ---------- Language ---------- */
+let LANG = "en";
+const L = (en, th) => LANG === "th" ? th : en;
+const BE = y => LANG === "th" ? +y + 543 : +y; // Thai readers use Buddhist-era years
+const fmtDate = iso => new Date(iso).toLocaleDateString(L("en-GB", "th-TH"), { day: "numeric", month: "short", year: "numeric" });
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const el = (tag, attrs = {}, parent) => {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+};
+const txt = (parent, x, y, s, attrs = {}) => { const t = el("text", { x, y, ...attrs }, parent); t.textContent = s; return t; };
+const fmt = n => n.toLocaleString("en-US");
+const anim = (node, cls, d) => { node.classList.add(cls); node.style.setProperty("--d", Math.round(d) + "ms"); return node; };
+
+/* Shared tooltip: hover on desktop, tap on touch. */
+const tip = document.getElementById("tip");
+function showTip(evt, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = tip.getBoundingClientRect();
+  let x = evt.clientX + 14, y = evt.clientY + 14;
+  if (x + r.width > innerWidth - 8) x = evt.clientX - r.width - 14;
+  if (y + r.height > innerHeight - 8) y = evt.clientY - r.height - 14;
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px";
+}
+const hideTip = () => { tip.hidden = true; };
+function hover(node, html) {
+  node.classList.add("hit");
+  node.setAttribute("tabindex", "0");
+  node.addEventListener("pointermove", e => showTip(e, html));
+  node.addEventListener("pointerdown", e => showTip(e, html));
+  node.addEventListener("pointerleave", hideTip);
+  node.addEventListener("focus", () => { const b = node.getBoundingClientRect(); showTip({ clientX: b.right, clientY: b.bottom }, html); });
+  node.addEventListener("blur", hideTip);
+}
+addEventListener("scroll", hideTip, { passive: true });
+
+function table(id, head, rows) {
+  const t = document.createElement("table");
+  t.innerHTML = "<thead><tr>" + head.map((h, i) => `<th class="${i ? "r" : ""}">${h}</th>`).join("") + "</tr></thead><tbody>" +
+    rows.map(r => "<tr>" + r.map((c, i) => `<td class="${i && typeof c === "number" ? "r" : ""}">${typeof c === "number" ? fmt(c) : c}</td>`).join("") + "</tr>").join("") + "</tbody>";
+  document.getElementById(id).replaceChildren(t);
+}
+
+/* ---------- Cabinet timeline ---------- */
+const TODAY = new Date(); // ongoing cabinets run to the reader's today
+const d = s => s ? new Date(s) : TODAY;
+const days = (a, b) => Math.round((d(b) - d(a)) / 864e5);
+
+function drawTimeline() {
+  const box = document.getElementById("timeline");
+  const W = box.clientWidth, narrow = W < 620;
+  const t0 = new Date("2019-01-01"), t1 = new Date("2027-01-01");
+  const padL = 0, padR = 0, rowH = narrow ? 58 : 50, top = 26;
+  const x = t => padL + (t - t0) / (t1 - t0) * (W - padL - padR);
+  const H = top + DATA.cabinets.length * rowH + 8;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Timeline of five Thai cabinets from 2019 to 2026" }, box);
+  for (let y = 2019; y <= 2027; y++) {
+    const xx = x(new Date(`${y}-01-01`));
+    el("line", { x1: xx, x2: xx, y1: top - 8, y2: H, stroke: css("--rule"), "stroke-width": 1 }, svg);
+    if (y < 2027 && (!narrow || y % 2 === 1)) txt(svg, xx + 4, 12, y, { class: "muted" });
+  }
+  DATA.cabinets.forEach(([term, s, e], i) => {
+    const c = CABINETS[term], y = top + i * rowH, x0 = x(d(s)), x1 = x(d(e)), n = days(s, e);
+    const bar = el("rect", { x: x0, y: y + 18, width: Math.max(3, x1 - x0), height: 14, rx: 3, fill: e ? css("--enacted") : css("--merged"), class: "grow", style: `animation-delay:${i * 120}ms` }, svg);
+    hover(bar, `<b>Cabinet ${term} · ${c.pm}</b><br>${s} to ${e || "today"}<br>${fmt(n)} days · ${c.end}`);
+    if (e) {
+      anim(el("circle", { cx: x1, cy: y + 25, r: 5, fill: css("--fall"), stroke: css("--bg"), "stroke-width": 2 }, svg), "pop", 700 + i * 120);
+    }
+    // label: above the bar, anchored to its start, flipped right-aligned if it would overflow
+    // one label line per cabinet: start at the bar, or right-align to the edge if it would overflow
+    const label = c.pm, info = `${fmt(n)} days · ${c.end}`;
+    const t = el("text", { y: y + 11 }, svg);
+    const s1 = el("tspan", { class: "strong" }, t); s1.textContent = label;
+    if (!narrow) { const s2 = el("tspan", { class: "muted", dx: 10 }, t); s2.textContent = info; }
+    const w = measure(label, 600) + (narrow ? 0 : 10 + measure(info));
+    if (x0 + w > W) { t.setAttribute("x", W); t.setAttribute("text-anchor", "end"); } else t.setAttribute("x", x0);
+    if (narrow) { const a = x0 + measure(info) > W; txt(svg, a ? W : x0, y + 48, info, { class: "muted", "text-anchor": a ? "end" : "start" }); }
+  });
+  table("timeline-table", ["Cabinet", "Prime minister", "Start", "End", "Days", "How it ended"],
+    DATA.cabinets.map(([t, s, e]) => [t, CABINETS[t].pm, s, e || "in office", days(s, e), CABINETS[t].end]));
+}
+const ctx = document.createElement("canvas").getContext("2d");
+function measure(s, w = 400, size = 12) { ctx.font = `${w} ${size}px "Schibsted Grotesk", system-ui, sans-serif`; return ctx.measureText(s).width; }
+
+/* ---------- Ministers ---------- */
+function drawMinisters() {
+  const box = document.getElementById("ministers");
+  const rows = DATA.ministers.filter(([k]) => MINISTRY_EN[k]);
+  const W = box.clientWidth, cols = W < 560 ? 1 : 2, colW = W / cols, rowH = 30;
+  const H = Math.ceil(rows.length / cols) * rowH;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Number of ministers per ministry" }, box);
+  const labelW = Math.min(170, colW * 0.5);
+  rows.forEach(([k, n], i) => {
+    const cx = (i % cols) * colW, cy = Math.floor(i / cols) * rowH + 18;
+    txt(svg, cx, cy + 4, L(MINISTRY_EN[k], MINISTRY_TH[k] || k), { class: n >= 6 ? "strong" : "" });
+    for (let j = 0; j < n; j++) {
+      anim(el("circle", { cx: cx + labelW + 8 + j * 20, cy, r: 6.5, fill: n >= 6 ? css("--fall") : css("--enacted"), stroke: css("--bg"), "stroke-width": 2 }, svg), "pop", i * 60 + j * 70);
+    }
+    txt(svg, cx + labelW + 8 + n * 20 + 2, cy + 4, n, { class: "muted" });
+  });
+}
+
+/* ---------- Bill dots ---------- */
+const ORDER = ["ENACTED", "MERGED", "IN_PROGRESS", "REJECTED"];
+function drawDots() {
+  const box = document.getElementById("dots");
+  const W = box.clientWidth, step = W < 520 ? 11 : 13, r = step < 13 ? 3.8 : 4.6;
+  const cols = Math.floor((W - 2) / step);
+  const groups = GROUPS.map(g => {
+    const items = DATA.bills.filter(g.test).sort((a, b) => ORDER.indexOf(a[1]) - ORDER.indexOf(b[1]));
+    return { ...g, items, enacted: items.filter(b => b[1] === "ENACTED").length, rows: Math.ceil(items.length / cols) };
+  });
+  const headH = 30, gap = 26;
+  const H = groups.reduce((s, g) => s + headH + g.rows * step + gap, 0);
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Dot chart of 922 bills by proposer and outcome" }, box);
+  let y = 0, seq = 0;
+  for (const g of groups) {
+    const pct = (g.enacted / g.items.length * 100);
+    txt(svg, 0, y + 16, g.name, { class: "strong", style: "font-size:14px" });
+    const pctTxt = `${pct < 10 ? pct.toFixed(1) : Math.round(pct)}%`, right = L(`${g.enacted} of ${fmt(g.items.length)} became law · ${pctTxt}`, `ได้เป็นกฎหมาย ${g.enacted} จาก ${fmt(g.items.length)} ฉบับ · ${pctTxt}`);
+    if (W >= 520) txt(svg, W, y + 16, right, { class: "muted", "text-anchor": "end", style: "font-size:13px" });
+    else txt(svg, 0, y + 32, right, { class: "muted", style: "font-size:12px" });
+    const top = y + headH + (W >= 520 ? 0 : 10);
+    g.items.forEach((b, i) => {
+      const cx = (i % cols) * step + step / 2, cy = top + Math.floor(i / cols) * step + step / 2;
+      const [lab, tok] = STATUS[b[1]];
+      const c = el("circle", tok
+        ? { cx, cy, r, fill: css(tok) }
+        : { cx, cy, r: r - 0.75, fill: css("--bg"), stroke: css("--rejected"), "stroke-width": 1.5 }, svg);
+      c.setAttribute("tabindex", "-1");
+      anim(c, "pop", seq++ * 1.1);
+      c.addEventListener("pointermove", e => showTip(e, `<b>${lab}</b> · ${g.name.split(" (")[0]}${b[2] ? L(" · proposed " + b[2], " · เสนอปี " + BE(b[2])) : ""}<span class="t-thai">${b[3]}</span>`));
+      c.addEventListener("pointerdown", e => showTip(e, `<b>${lab}</b> · ${g.name.split(" (")[0]}${b[2] ? L(" · proposed " + b[2], " · เสนอปี " + BE(b[2])) : ""}<span class="t-thai">${b[3]}</span>`));
+      c.addEventListener("pointerleave", hideTip);
+    });
+    y = top + g.rows * step + gap;
+  }
+  const unknown = DATA.bills.filter(b => b[0] === "UNKNOWN");
+  const count = (items, s) => items.filter(b => b[1] === s).length;
+  table("dots-table", [L("Proposer", "ผู้เสนอ"), L("Bills", "จำนวนร่าง"), L("Became law", "ได้เป็นกฎหมาย"), L("Merged", "ถูกรวมร่าง"), L("In progress", "อยู่ระหว่างพิจารณา"), L("Rejected or lapsed", "ถูกปัดตกหรือตกไป")],
+    [...groups.map(g => [g.name, g.items.length, ...ORDER.map(s => count(g.items, s))]),
+     [L("Unknown proposer (not charted)", "ไม่ทราบผู้เสนอ (ไม่ได้แสดงในแผนภาพ)"), unknown.length, ...ORDER.map(s => count(unknown, s))]]);
+}
+
+/* ---------- MP bill bar + days ---------- */
+function drawMpBar() {
+  const box = document.getElementById("mpbar");
+  const W = box.clientWidth, total = 731, never = DATA.mpNeverVoted, voted = total - never;
+  const H = 190;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `${never} of ${total} MP bills never reached a first vote` }, box);
+  const w1 = (never / total) * W;
+  const a = el("rect", { x: 0, y: 26, width: w1 - 1, height: 22, rx: 4, fill: css("--rejected"), class: "grow" }, svg);
+  const b = el("rect", { x: w1 + 1, y: 26, width: W - w1 - 1, height: 22, rx: 4, fill: css("--enacted"), class: "grow", style: "animation-delay:150ms" }, svg);
+  hover(a, L(`<b>${never} bills</b> never reached a first-reading vote`, `<b>${never} ฉบับ</b> ไม่เคยเข้าสู่การลงมติวาระแรก`));
+  hover(b, L(`<b>${voted} bills</b> reached at least a first-reading vote`, `<b>${voted} ฉบับ</b> ได้เข้าสู่การลงมติอย่างน้อยวาระแรก`));
+  txt(svg, 0, 16, L(`${never} never reached a first vote`, `${never} ฉบับไม่เคยถึงการลงมติวาระแรก`) + ` (${Math.round(never / total * 100)}%)`, { class: "strong" });
+  txt(svg, W, 16, L(`${voted} were voted on`, `${voted} ฉบับได้ลงมติ`), { class: "strong", "text-anchor": "end" });
+
+  // days to law: two thin bars on one scale
+  const md = DATA.medianDays, max = 600, x = v => v / max * (W - 70);
+  txt(svg, 0, 84, L("Median time from proposal to law", "เวลาค่ากลาง นับจากวันเสนอจนเป็นกฎหมาย"), { class: "muted" });
+  [[L("Cabinet bills", "ร่างของคณะรัฐมนตรี"), md.ASSEMBLY, "--enacted"], [L("MP bills (9 cases)", "ร่างของ ส.ส. (9 ฉบับ)"), md.POLITICIAN, "--merged"]].forEach(([lab, v, tok], i) => {
+    const y = 112 + i * 38;
+    txt(svg, 0, y + 2, lab, { class: "strong" });
+    const r = el("rect", { x: 0, y: y + 10, width: x(v), height: 12, rx: 3, fill: css(tok), class: "grow", style: `animation-delay:${200 + i * 120}ms` }, svg);
+    hover(r, `<b>${lab}</b><br>${L("median", "ค่ากลาง")} ${Math.round(v)} ${L("days", "วัน")}`);
+    txt(svg, x(v) + 8, y + 20, `${Math.round(v)} ${L("days", "วัน")}`, { class: "strong" });
+  });
+}
+
+/* ---------- Party flows ---------- */
+const PARTY_EN = {
+  "ก้าวไกล": "Move Forward", "ประชาชน": "People's Party", "อนาคตใหม่": "Future Forward", "พลังประชารัฐ": "Palang Pracharath", "กล้าธรรม": "Kla Tham",
+  "เศรษฐกิจไทย": "Thai Economic", "ภูมิใจไทย": "Bhumjaithai", "รวมไทยสร้างชาติ": "United Thai Nation", "ชาติไทยพัฒนา": "Chart Thai Pattana",
+  "เพื่อไทย": "Pheu Thai", "ประชาธิปัตย์": "Democrat"
+};
+const FORCED = new Set(["ก้าวไกล>ประชาชน", "อนาคตใหม่>ก้าวไกล"]);
+function drawFlows() {
+  const box = document.getElementById("flows");
+  const W = box.clientWidth, narrow = W < 620;
+  const rows = DATA.flows, rowH = narrow ? 46 : 30, labelW = narrow ? 0 : 330, max = rows[0][2];
+  const H = rows.length * rowH + 4;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Largest party-to-party moves" }, box);
+  const x = v => v / max * (W - labelW - 44);
+  rows.forEach(([a, b, n], i) => {
+    const y = i * rowH, forced = FORCED.has(a + ">" + b);
+    const tok = forced ? "--forced" : b === "ภูมิใจไทย" ? "--fall" : "--merged";
+    const lab = `${PARTY_EN[a] || a} → ${PARTY_EN[b] || b}`;
+    const by = narrow ? y + 20 : y + 8;
+    txt(svg, 0, narrow ? y + 13 : y + 19, lab, { class: b === "ภูมิใจไทย" ? "strong" : "" });
+    const r = el("rect", { x: labelW, y: by, width: Math.max(2, x(n)), height: 14, rx: 3, fill: css(tok), class: "grow", style: `animation-delay:${i * 40}ms` }, svg);
+    hover(r, `<b>${lab}</b><br>${n} politicians${forced ? "<br>Old party dissolved by the Constitutional Court" : ""}<span class="t-thai">${a} → ${b}</span>`);
+    txt(svg, labelW + x(n) + 8, by + 12, n, { class: "strong" });
+  });
+  table("flows-table", ["From", "To", "People", "Type"], rows.map(([a, b, n]) => [`${PARTY_EN[a] || a} <span class="thai">(${a})</span>`, `${PARTY_EN[b] || b} <span class="thai">(${b})</span>`, n, FORCED.has(a + ">" + b) ? "Forced (dissolution)" : "Chosen"]));
+}
+
+/* ---------- Party-switching network ---------- */
+const PARTY_EN2 = Object.assign({}, PARTY_EN, { "ไทยสร้างไทย": "Thai Sang Thai", "ประชาชาติ": "Prachachat", "ชาติพัฒนา": "Chart Pattana", "ชาติพัฒนากล้า": "Chart Pattana Kla", "ไทรวมพลัง": "Thai Ruam Palang", "เพื่อไทรวมพลัง": "Pheu Thai Ruam Palang", "พลังท้องถิ่นไท": "Palang Thongthin Thai", "เพื่อชาติ": "Pheu Chart", "ไทยก้าวหน้า": "Thai Progress", "เป็นธรรม": "Fair Party", "ใหม่": "New Party", "ท้องที่ไทย": "Thongthi Thai", "พลังสังคมใหม่": "New Social Power", "ครูไทยเพื่อประชาชน": "Thai Teachers for People", "รวมพลัง": "Ruam Palang", "เราทำได้": "Rao Tham Dai", "รวมแผ่นดิน": "Ruam Pandin", "พลังปวงชนไทย": "Palang Puangchon Thai", "ประชาธรรมไทย": "Pracha Tham Thai", "ประชาชนปฏิรูป": "People's Reform", "ประชานิยม": "Prachaniyom", "ประชาภิวัฒน์": "Prachapiwat", "ไทยรักษาชาติ": "Thai Raksa Chart", "เศรษฐกิจใหม่": "New Economics" });
+const pname = t => LANG === "th" ? t : (PARTY_EN2[t] || t);
+const logo = t => DATA.logos[t];
+const logoImg = (t, px = 18) => logo(t) ? `<img class="logo" src="${logo(t)}" alt="" width="${px}" height="${px}">` : "";
+let netPeriod = "all", netLayout = null;
+function netEdges(period) {
+  const m = new Map();
+  for (const [k, a, b, kind, n, names] of DATA.network.edges) {
+    if (period !== "all" && k !== period) continue;
+    const kk = kind === "both" ? "unknown" : kind, key = a + ">" + b + ">" + kk;
+    const e = m.get(key) || { a, b, kind: kk, n: 0, names: [] };
+    e.n += n; e.names.push(...names); m.set(key, e);
+  }
+  return [...m.values()];
+}
+function netTotals(period) {
+  const t = { gov: 0, opp: 0, unknown: 0, forced: 0 };
+  netEdges(period).forEach(e => t[e.kind] += e.n);
+  return t;
+}
+function layoutNetwork(W, H) {
+  const all = netEdges("all"), ids = [...new Set(all.flatMap(e => [e.a, e.b]))];
+  const nodes = ids.map((id, i) => ({ id, r: Math.min(36, 11 + Math.sqrt(DATA.network.members[id] || 1) * 1.3), x: W / 2 + Math.cos(i * 2.4) * 120, y: H / 2 + Math.sin(i * 2.4) * 120 }));
+  const links = all.map(e => ({ source: e.a, target: e.b, n: e.n }));
+  const sim = d3.forceSimulation(nodes)
+    .force("link", d3.forceLink(links).id(d => d.id).distance(d => 120 + 40 / Math.sqrt(d.n)).strength(0.25))
+    .force("charge", d3.forceManyBody().strength(-760))
+    .force("collide", d3.forceCollide(d => d.r + 30))
+    .force("x", d3.forceX(W / 2).strength(0.06)).force("y", d3.forceY(H / 2).strength(0.09))
+    .stop();
+  for (let i = 0; i < 500; i++) sim.tick();
+  // fit into the box, leaving room for labels
+  const pad = 70, xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
+  const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
+  nodes.forEach(n => { n.x = pad + (n.x - x0) / (x1 - x0 || 1) * (W - 2 * pad); n.y = 40 + (n.y - y0) / (y1 - y0 || 1) * (H - 80); });
+  return Object.fromEntries(nodes.map(n => [n.id, n]));
+}
+let netAnim = null;
+function drawNetwork() {
+  const box = document.getElementById("network");
+  box.replaceChildren();
+  const W = box.clientWidth, H = W < 560 ? 600 : 680;
+  if (!netLayout || netLayout.W !== W) netLayout = { W, pos: layoutNetwork(W, H) };
+  const pos = netLayout.pos, edges = netEdges(netPeriod), sides = DATA.network.sides[netPeriod] || {};
+  const active = new Set(edges.flatMap(e => [e.a, e.b]));
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Network of politicians moving between Thai parties" }, box);
+  const defs = el("defs", {}, svg);
+  Object.entries(EDGE_KIND).forEach(([k, [, tok]]) => {
+    const mk = el("marker", { id: "arr-" + k, viewBox: "0 0 10 10", refX: 8, refY: 5, markerWidth: 9, markerHeight: 9, markerUnits: "userSpaceOnUse", orient: "auto-start-reverse" }, defs);
+    el("path", { d: "M0,0 L10,5 L0,10 z", fill: css(tok) }, mk);
+  });
+  const gE = el("g", {}, svg), gP = el("g", {}, svg), gN = el("g", {}, svg);
+  // edges: curved, ending at the target circle's rim
+  const paths = edges.sort((a, b) => b.n - a.n).map(e => {
+    const s = pos[e.a], t = pos[e.b], dx = t.x - s.x, dy = t.y - s.y, D = Math.hypot(dx, dy) || 1;
+    const ex = t.x - dx / D * (t.r + 4), ey = t.y - dy / D * (t.r + 4), sx = s.x + dx / D * s.r, sy = s.y + dy / D * s.r;
+    const cx = (sx + ex) / 2 - dy / D * D * 0.18, cy = (sy + ey) / 2 + dx / D * D * 0.18;
+    const p = el("path", { class: "edge", d: `M${sx},${sy} Q${cx},${cy} ${ex},${ey}`, fill: "none", stroke: css(EDGE_KIND[e.kind][1]), "stroke-width": 1.2 + Math.sqrt(e.n) * 1.3, "stroke-linecap": "round", "marker-end": `url(#arr-${e.kind})`, "stroke-opacity": 0.85 }, gE);
+    const shown = e.names.slice(0, 8).join(", ") + (e.names.length > 8 ? L(` and ${e.names.length - 8} more`, ` และอีก ${e.names.length - 8} คน`) : "");
+    hover(p, `<b>${pname(e.a)} → ${pname(e.b)}</b><br>${L(`${e.n} ${e.n === 1 ? "politician" : "politicians"}`, `${e.n} คน`)} · ${EDGE_KIND[e.kind][0]}<span class="t-thai">${shown}</span>`);
+    p._e = e;
+    p.style.setProperty("--len", p.getTotalLength());
+    anim(p, "draw", 500 + gE.childElementCount * 30);
+    return p;
+  });
+  // nodes: government = black, opposition = white ring, unknown = grey
+  const nodeEls = {};
+  Object.values(pos).forEach(n => {
+    const sd = sides[n.id], on = active.has(n.id);
+    const ring = sd === "gov" ? [css("--char"), 4] : sd === "opp" ? [css("--merged"), 2.5] : [css("--rule"), 1.5];
+    const c = el("circle", { class: "node", cx: n.x, cy: n.y, r: n.r, fill: "#ffffff", stroke: ring[0], "stroke-width": ring[1], opacity: on ? 1 : 0.18 }, gN);
+    if (logo(n.id)) {
+      const cid = "clip-" + Object.keys(nodeEls).length;
+      el("circle", { cx: n.x, cy: n.y, r: n.r * 0.78 }, el("clipPath", { id: cid }, defs));
+      const s = n.r * 1.5;
+      const im = el("image", { href: logo(n.id), x: n.x - s / 2, y: n.y - s / 2, width: s, height: s, "clip-path": `url(#${cid})`, "pointer-events": "none", opacity: on ? 1 : 0.18, preserveAspectRatio: "xMidYMid meet" }, gN);
+      anim(im, "pop", (Object.keys(nodeEls).length + 1) * 25);
+    }
+    const lab = txt(gN, n.x, n.y + n.r + 14, pname(n.id), { class: "node-label", "text-anchor": "middle", style: `font-size:${n.r > 16 ? 12.5 : 11}px`, opacity: on ? 1 : 0.25 });
+    const ins = edges.filter(e => e.b === n.id).reduce((s, e) => s + e.n, 0), outs = edges.filter(e => e.a === n.id).reduce((s, e) => s + e.n, 0);
+    const sideTxt = sd === "gov" ? L("In government", "อยู่ในรัฐบาล") : sd === "opp" ? L("In opposition", "อยู่ฝ่ายค้าน") : L("Side not recorded for this period", "ไม่มีข้อมูลฝั่งในช่วงนี้");
+    hover(c, `${logoImg(n.id, 28)}<b>${pname(n.id)}</b>${L(` <span class="thai">${n.id}</span>`, "")}<br>${L(`${fmt(DATA.network.members[n.id] || 0)} members in the dataset<br>${ins} joined · ${outs} left`, `สมาชิกในฐานข้อมูล ${fmt(DATA.network.members[n.id] || 0)} คน<br>ย้ายเข้า ${ins} · ย้ายออก ${outs}`)}${netPeriod === "all" ? "" : "<br>" + sideTxt}`);
+    // focus a party: fade everything not connected to it
+    const focus = onn => {
+      paths.forEach(p => p.classList.toggle("dim", onn && p._e.a !== n.id && p._e.b !== n.id));
+    };
+    c.addEventListener("pointerenter", () => focus(true));
+    c.addEventListener("pointerleave", () => focus(false));
+    c.addEventListener("focus", () => focus(true));
+    c.addEventListener("blur", () => focus(false));
+    nodeEls[n.id] = { c, lab };
+    anim(c, "pop", Object.keys(nodeEls).length * 25); anim(lab, "fade", 200 + Object.keys(nodeEls).length * 25);
+  });
+  // people in motion: dark dots riding the arrows
+  const riders = [];
+  paths.forEach(p => {
+    const len = p.getTotalLength(), k = Math.max(1, Math.round(p._e.n / 4));
+    for (let i = 0; i < k; i++) riders.push({ p, len, t: i / k + Math.random() * 0.1, v: 0.0022 + Math.random() * 0.0012, dot: el("circle", { r: 2.4, fill: css("--char"), "pointer-events": "none" }, gP) });
+  });
+  const place = () => riders.forEach(r => { const pt = r.p.getPointAtLength((r.t % 1) * r.len); r.dot.setAttribute("cx", pt.x); r.dot.setAttribute("cy", pt.y); r.dot.setAttribute("opacity", r.p.classList.contains("dim") ? 0.1 : Math.sin(Math.PI * (r.t % 1))); });
+  cancelAnimationFrame(netAnim);
+  const tick = () => { riders.forEach(r => r.t += r.v); place(); if (!document.hidden) netAnim = requestAnimationFrame(tick); };
+  if (still) place(); else tick();
+
+  // tabs, legend, summary, table
+  const tabs = document.getElementById("net-tabs");
+  tabs.innerHTML = ["all", ...DATA.network.periods.map(p => p[0])].map(k => [k, NET_PERIODS[k]]).map(([k, l]) => `<button role="tab" id="tab-${k}" aria-selected="${k === netPeriod}" data-k="${k}">${l}</button>`).join("");
+  tabs.querySelectorAll("button").forEach(b => b.onclick = () => { netPeriod = b.dataset.k; replay(box); drawNetwork(); });
+  document.getElementById("net-legend").innerHTML =
+    ["gov", "opp", "unknown", "forced"].map(k => `<span><i class="sw bar" style="background:var(${EDGE_KIND[k][1]})"></i>${EDGE_KIND[k][0]}</span>`).join("") +
+    (netPeriod === "all" ? "" : `<span><i class="sw ring" style="border:3px solid var(--char)"></i>${L("Party in government", "พรรครัฐบาล")}</span><span><i class="sw ring" style="border:2px solid var(--merged)"></i>${L("Party in opposition", "พรรคฝ่ายค้าน")}</span>`);
+  const t = netTotals(netPeriod), chosen = t.gov + t.opp;
+  document.getElementById("net-note").innerHTML = chosen
+    ? L(`Of the moves politicians chose where the side is recorded, <b>${t.gov} of ${chosen}</b> (${Math.round(t.gov / chosen * 100)}%) went into a government party.` + (t.forced ? ` Another ${t.forced} were forced by a court dissolution.` : "") + (t.unknown ? ` ${t.unknown} went to parties whose side is not recorded.` : ""),
+        `ในการย้ายพรรคที่นักการเมืองเลือกเองและรู้ว่าพรรคปลายทางอยู่ฝั่งไหน <b>${t.gov} จาก ${chosen} ครั้ง</b> (${Math.round(t.gov / chosen * 100)}%) เป็นการย้ายเข้าพรรครัฐบาล` + (t.forced ? ` อีก ${t.forced} ครั้งเป็นการย้ายเพราะพรรคถูกศาลยุบ` : "") + (t.unknown ? ` และอีก ${t.unknown} ครั้งย้ายไปพรรคที่ยังไม่มีข้อมูลว่าอยู่ฝั่งไหน` : ""))
+    : L(`${t.unknown} moves in this period went to parties whose side is not recorded.`, `ช่วงนี้มีการย้ายพรรค ${t.unknown} ครั้ง ไปยังพรรคที่ยังไม่มีข้อมูลว่าอยู่ฝั่งไหน`);
+  table("net-table", [L("From", "จากพรรค"), L("To", "ไปพรรค"), L("People", "จำนวนคน"), L("Type", "ประเภท")], edges.map(e => [`${logoImg(e.a)}${pname(e.a)}${L(` <span class="thai">(${e.a})</span>`, "")}`, `${logoImg(e.b)}${pname(e.b)}${L(` <span class="thai">(${e.b})</span>`, "")}`, e.n, EDGE_KIND[e.kind][0]]));
+}
+function drawNetStats() {
+  const t = netTotals("all"), bj = DATA.network.edges.filter(e => e[0] === "anutin" && e[2] === "ภูมิใจไทย").reduce((s, e) => s + e[4], 0);
+  document.getElementById("net-stats").innerHTML =
+    `<div class="stat alert"><div class="num">${t.gov}</div><div class="label">chosen moves into a party then in government</div></div>` +
+    `<div class="stat"><div class="num">${t.opp}</div><div class="label">chosen moves into a party then in opposition</div></div>` +
+    `<div class="stat"><div class="num">${bj}</div><div class="label">politicians who had joined Bhumjaithai, the prime minister's party, by March 2026</div></div>`;
+}
+
+/* ---------- Cabinet table (under the prologue timeline) ---------- */
+function cabTable() {
+  table("timeline-table", [L("Cabinet", "คณะรัฐมนตรีชุดที่"), L("Prime minister", "นายกรัฐมนตรี"), L("Start", "เริ่ม"), L("End", "สิ้นสุด"), L("Days", "จำนวนวัน"), L("How it ended", "สิ้นสุดอย่างไร")],
+    DATA.cabinets.map(([t, s, e]) => [t, CABINETS[t].pm, fmtDate(s), e ? fmtDate(e) : L("in office", "อยู่ในตำแหน่ง"), days(s, e), CABINETS[t].end]));
+}
+
+/* ---------- The two prime-minister votes ---------- */
+const voteKind = o => o.includes("อนุทิน") ? "anutin" : o === "งดออกเสียง" ? "abstain" : o === "ลา / ขาดลงมติ" ? "absent" : "rival";
+function drawPmVote() {
+  const box = document.getElementById("pmvote");
+  const votes = DATA.pmVotes.map(v => {
+    const parties = {};
+    Object.entries(v.parties).forEach(([p, opts]) => Object.entries(opts).forEach(([o, n]) => {
+      const k = voteKind(o); parties[p] = parties[p] || { anutin: 0, rival: 0, abstain: 0, absent: 0 }; parties[p][k] += n;
+    }));
+    return { date: v.date, parties };
+  });
+  const size = p => votes.map(v => Object.values(v.parties[p] || {}).reduce((a, b) => a + b, 0));
+  const all = [...new Set(votes.flatMap(v => Object.keys(v.parties)))];
+  const big = all.filter(p => p !== "other" && Math.max(...size(p)) >= 5).sort((a, b) => size(b)[1] - size(a)[1] || size(b)[0] - size(a)[0]);
+  const rows = [...big, "other"];
+  const tally = (v, p) => p === "other"
+    ? Object.entries(v.parties).filter(([q]) => !big.includes(q)).reduce((t, [, c]) => { Object.keys(t).forEach(k => t[k] += c[k]); return t; }, { anutin: 0, rival: 0, abstain: 0, absent: 0 })
+    : (v.parties[p] || { anutin: 0, rival: 0, abstain: 0, absent: 0 });
+  const label = p => p === "other" ? L("Smaller parties", "พรรคเล็กอื่นๆ") : pname(p);
+
+  const W = box.clientWidth, two = W >= 720, gap = 40, colW = two ? (W - gap) / 2 : W, step = 9, r = 3.4;
+  const perLine = Math.floor(colW / step), labelH = 20, rowGap = 12, headH = 54;
+  const lines = rows.map(p => Math.max(...votes.map(v => Math.ceil(Object.values(tally(v, p)).reduce((a, b) => a + b, 0) / perLine) || 0)));
+  const colH = headH + lines.reduce((s, l) => s + labelH + Math.max(1, l) * step + rowGap, 0);
+  const H = two ? colH : colH * 2 + 24;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Every MP's vote in the two prime-minister votes, by party" }, box);
+  let seq = 0;
+  votes.forEach((v, vi) => {
+    const ox = two ? vi * (colW + gap) : 0, oy = two ? 0 : vi * (colH + 24);
+    const [rival] = PM_RIVAL[v.date], tot = rows.reduce((t, p) => { const c = tally(v, p); Object.keys(t).forEach(k => t[k] += c[k]); return t; }, { anutin: 0, rival: 0, abstain: 0, absent: 0 });
+    const when = new Date(v.date).toLocaleDateString(L("en-GB", "th-TH"), { day: "numeric", month: "long", year: "numeric" });
+    txt(svg, ox, oy + 16, when, { class: "strong", style: "font-size:15px" });
+    txt(svg, ox, oy + 36, L(`Anutin ${tot.anutin} · ${rival.split(" ")[0]} ${tot.rival} · abstained ${tot.abstain}`, `อนุทิน ${tot.anutin} · ${rival.split(" ")[0]} ${tot.rival} · งดออกเสียง ${tot.abstain}`), { class: "muted" });
+    let y = oy + headH;
+    rows.forEach((p, ri) => {
+      const c = tally(v, p), n = Object.values(c).reduce((a, b) => a + b, 0);
+      const lg = p !== "other" && logo(p);
+      if (lg) el("image", { href: lg, x: ox, y: y, width: 17, height: 17, preserveAspectRatio: "xMidYMid meet" }, svg);
+      txt(svg, ox + (lg ? 23 : 0), y + 13, label(p), { class: "strong" });
+      if (n) txt(svg, ox + colW, y + 13, n, { class: "muted", "text-anchor": "end" });
+      let i = 0;
+      for (const k of ["anutin", "rival", "abstain", "absent"]) {
+        for (let j = 0; j < c[k]; j++, i++) {
+          const cx = ox + (i % perLine) * step + step / 2, cy = y + labelH + Math.floor(i / perLine) * step + step / 2;
+          const tok = VOTE_KIND[k][1];
+          const d = el("circle", tok ? { cx, cy, r: k === "absent" ? 2 : r, fill: css(tok) } : { cx, cy, r: r - 0.7, fill: css("--bg"), stroke: css("--rejected"), "stroke-width": 1.3 }, svg);
+          anim(d, "pop", vi * 500 + seq++ * 0.9);
+          const tipHtml = `${p !== "other" ? logoImg(p, 22) : ""}<b>${label(p)}</b><br>${k === "rival" ? L("For " + rival, "โหวตให้" + rival) : VOTE_KIND[k][0]}`;
+          d.addEventListener("pointermove", e => showTip(e, tipHtml));
+          d.addEventListener("pointerdown", e => showTip(e, tipHtml));
+          d.addEventListener("pointerleave", hideTip);
+        }
+      }
+      y += labelH + Math.max(1, lines[ri]) * step + rowGap;
+    });
+  });
+  document.getElementById("pm-legend").innerHTML = Object.entries(VOTE_KIND).map(([k, [l, tok]]) =>
+    `<span><i class="sw${tok ? "" : " ring"}" style="${tok ? `background:var(${tok})` : ""}${k === "absent" ? ";width:7px;height:7px" : ""}"></i>${l}</span>`).join("");
+  // counterfactual: without the rival party's votes, would Anutin have had a majority?
+  document.getElementById("pm-note").innerHTML = votes.map(v => {
+    const [, , , key] = PM_RIVAL[v.date], members = Object.values(v.parties).reduce((s, c) => s + Object.values(c).reduce((a, b) => a + b, 0), 0);
+    const need = Math.floor(members / 2) + 1, tot = Object.values(v.parties).reduce((s, c) => s + c.anutin, 0), without = tot - (v.parties[key] || {}).anutin;
+    return L(`Without ${key === "ประชาชน" ? "the " : ""}${pname(key)} in ${v.date.slice(0, 4)}, Anutin would have had <b>${without} votes</b>, short of the ${need} needed.`, `ถ้าไม่มีเสียงจากพรรค${pname(key)} ในปี ${BE(v.date.slice(0, 4))} อนุทินจะได้เพียง <b>${without} เสียง</b> ไม่ถึง ${need} เสียงที่ต้องการ`);
+  }).join(" ");
+  table("pm-table", [L("Party", "พรรค"), L("Vote", "การลงมติ"), L("For Anutin", "ให้อนุทิน"), L("For rival", "ให้คู่แข่ง"), L("Abstained", "งดออกเสียง"), L("Absent", "ไม่ได้ลงมติ")],
+    votes.flatMap(v => rows.map(p => { const c = tally(v, p); return [label(p), fmtDate(v.date), c.anutin, c.rival, c.abstain, c.absent]; })).filter(r => r[2] + r[3] + r[4] + r[5]));
+}
+
+/* ---------- 2026 referendum ---------- */
+function drawReferendum() {
+  const box = document.getElementById("referendum");
+  const rows = [[L("Yes", "เห็นชอบ"), 21621638, "--enacted"], [L("No", "ไม่เห็นชอบ"), 11241653, "--fall"], [L("No opinion", "ไม่แสดงความเห็น"), 3074330, "--forced"]];
+  const total = rows.reduce((s, r) => s + r[1], 0), W = box.clientWidth, H = 92;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "2026 referendum: 60% yes, 31% no, 9% no opinion" }, box);
+  let x = 0;
+  rows.forEach(([lab, n, tok], i) => {
+    const w = n / total * W, pct = (n / total * 100).toFixed(1) + "%";
+    const r = el("rect", { x: x + (i ? 1 : 0), y: 30, width: Math.max(2, w - (i ? 1 : 0) - (i < 2 ? 1 : 0)), height: 26, rx: 4, fill: css(tok), class: "grow", style: `animation-delay:${i * 200}ms` }, svg);
+    hover(r, `<b>${lab}</b><br>${fmt(n)} ${L("votes", "เสียง")} · ${pct}`);
+    const inside = w > 150;
+    if (i < 2 || inside) txt(svg, i === 2 ? x + w : x, 20, `${lab} ${pct}`, { class: i === 0 ? "strong" : "", "text-anchor": i === 2 ? "end" : "start", style: "font-size:13px" });
+    txt(svg, i === 2 ? x + w : x, 74, `${(n / 1e6).toFixed(1)} ${L("million", "ล้าน")}`, { class: "muted", "text-anchor": i === 2 ? "end" : "start", style: "font-size:12px" });
+    x += w;
+  });
+}
+
+/* ---------- Who won vs who governed ---------- */
+const ELECTIONS = [
+  { y: 2019, won: ["เพื่อไทย", 136], led: ["พลังประชารัฐ", 116], pm: ["Prayut Chan-o-cha", "ประยุทธ์ จันทร์โอชา"], rest: [["อนาคตใหม่", 81], ["ประชาธิปัตย์", 53], ["ภูมิใจไทย", 51]] },
+  { y: 2023, won: ["ก้าวไกล", 151], led: ["เพื่อไทย", 141], pm: ["Srettha Thavisin", "เศรษฐา ทวีสิน"], rest: [["ภูมิใจไทย", 71], ["พลังประชารัฐ", 40], ["รวมไทยสร้างชาติ", 36]] },
+  { y: 2026, won: ["ภูมิใจไทย", 192], led: ["ภูมิใจไทย", 192], pm: ["Anutin Charnvirakul", "อนุทิน ชาญวีรกูล"], rest: [["ประชาชน", 120], ["เพื่อไทย", 74], ["ประชาธิปัตย์", 21]] }
+];
+function drawWon() {
+  const box = document.getElementById("won");
+  const who = (label, [p, n], extra) => `<div class="who">${logo(p) ? `<img src="${logo(p)}" alt="">` : ""}<div><small>${label}</small><strong>${pname(p)}</strong><span class="seats">${n} ${L("seats", "ที่นั่ง")}${extra ? " · " + extra : ""}</span></div></div>`;
+  box.innerHTML = ELECTIONS.map(e => {
+    const same = e.won[0] === e.led[0];
+    const parts = same ? [[e.won[1], "wg"]] : [[e.won[1], "w"], [e.led[1], "g"]];
+    e.rest.forEach(([, n]) => parts.push([n, ""]));
+    const others = 500 - parts.reduce((a, [n]) => a + n, 0);
+    parts.push([others, ""]);
+    return `<div class="wrow">
+      <div class="yr">${BE(e.y)}</div>
+      ${who(L("Won most seats", "ได้ที่นั่งมากที่สุด"), e.won)}
+      ${who(L("Led the government", "เป็นแกนนำรัฐบาล"), e.led, L("PM " + e.pm[0], "นายกฯ " + e.pm[1]))}
+      <span class="verdict ${same ? "same" : "diff"}">${same ? L("Winner governed", "ผู้ชนะได้เป็นรัฐบาล") : L("Winner in opposition", "ผู้ชนะเป็นฝ่ายค้าน")}</span>
+      <div class="seatbar" role="img" aria-label="${e.y}">${parts.map(([n, c]) => `<i class="${c}" style="flex:${n}"></i>`).join("")}</div>
+    </div>`;
+  }).join("");
+}
+
+/* ---------- What you'll learn ---------- */
+function drawLearn() {
+  const grid = document.getElementById("learn-grid");
+  // numbers, all from the same data as the charts below
+  const cabs = DATA.cabinets.map(([t, s, e]) => ({ t, d: days(s, e), live: !e }));
+  const grp = test => { const it = DATA.bills.filter(test); return [it.filter(b => b[1] === "ENACTED").length, it.length]; };
+  const laws = [
+    [L("Cabinet", "ครม."), grp(b => b[0] === "ASSEMBLY" && !b[4]), "--enacted"],
+    [L("Decrees", "พ.ร.ก."), grp(b => b[4]), "--enacted"],
+    [L("MPs", "ส.ส."), grp(b => b[0] === "POLITICIAN"), "--fall"],
+    [L("Citizens", "ประชาชน"), grp(b => b[0] === "PEOPLE"), "--fall"]
+  ];
+  const mp = laws[2][1], mpPct = (mp[0] / mp[1] * 100).toFixed(1);
+  const nt = netTotals("all"), chosen = nt.gov + nt.opp, govPct = Math.round(nt.gov / chosen * 100);
+  const pm = DATA.pmVotes.map(v => {
+    const [, , , key] = PM_RIVAL[v.date];
+    const all = Object.values(v.parties).reduce((s, c) => s + Object.values(c).reduce((a, b) => a + b, 0), 0);
+    const forA = Object.values(v.parties).reduce((s, c) => s + (c["นายอนุทิน ชาญวีรกูล"] || 0), 0);
+    const key_ = (v.parties[key] || {})["นายอนุทิน ชาญวีรกูล"] || 0;
+    return { year: BE(v.date.slice(0, 4)), need: Math.floor(all / 2) + 1, total: all, others: forA - key_, key: key_, keyName: pname(key) };
+  });
+  const A = Object.values(DATA.anutin.terms).reduce((s, t) => [s[0] + t.missed, s[1] + t.votes], [0, 0]), aPct = Math.round(A[0] / A[1] * 100);
+  const typical = Math.round(DATA.absence["สภาผู้แทนราษฎร-25"].median * 100);
+
+  const cards = [
+    { id: "rulebook", wide: true, k: L("The rulebook", "กติกา"), num: "5", unit: L("rules", "ข้อ"),
+      txt: L("rules written after the coup shape everything that follows: who picks the prime minister, which bills get debated, and who can remove a government.", "กติกาที่เขียนหลังรัฐประหาร กำหนดทุกอย่างที่ตามมา ทั้งใครเลือกนายกฯ ร่างไหนได้พิจารณา และใครปลดรัฐบาลได้"),
+      viz: "rules" },
+    { id: "cabinets", k: L("Governments", "รัฐบาล"), num: "84", unit: L("days", "วัน"), alert: true,
+      txt: L("The shortest cabinet. Two prime ministers were removed by the court, not by voters.", "คณะรัฐมนตรีที่อยู่สั้นที่สุด นายกฯ สองคนพ้นตำแหน่งเพราะศาล ไม่ใช่เพราะประชาชน"), viz: "cabs" },
+    { id: "laws", k: L("Who writes the law", "ใครเขียนกฎหมาย"), num: mpPct + "%", alert: true,
+      txt: L("of MPs' bills became law. The cabinet's emergency decrees almost always do.", "ของร่างกฎหมายจาก ส.ส. ได้เป็นกฎหมาย ส่วนพระราชกำหนดของรัฐบาลแทบผ่านทุกฉบับ"), viz: "laws" },
+    { id: "parties", k: L("Party switching", "การย้ายพรรค"), num: govPct + "%",
+      txt: L("of the moves politicians chose went into a party that was in government.", "ของการย้ายพรรคที่นักการเมืองเลือกเอง ไปอยู่กับพรรครัฐบาล"), viz: "parties" },
+    { id: "kingmakers", k: L("The kingmakers", "ผู้ชี้ขาด"), num: L("Twice", "2 ครั้ง"),
+      txt: L("a rival party supplied the votes that made Anutin prime minister.", "พรรคคู่แข่งให้เสียงที่ทำให้อนุทินได้เป็นนายกฯ"), viz: "pm" },
+    { id: "votes", k: L("Inside the chamber", "ในห้องประชุม"), num: aPct + "%", alert: true,
+      txt: L("of recorded House votes were missed by the prime minister. The typical US representative misses about 2%.", "ของการลงมติที่นายกฯ ไม่ได้ร่วม สมาชิกสภาสหรัฐฯ โดยทั่วไปขาดราว 2%"), viz: "absent" },
+    { id: "rewrite", k: L("What's next", "ต่อจากนี้"), num: "60%",
+      txt: L("of voters backed a new constitution in 2026. Who writes it is still undecided.", "ของผู้มาใช้สิทธิเห็นชอบให้มีรัฐธรรมนูญใหม่ในปี 2569 แต่ใครจะเขียนยังไม่ชัด"), viz: "ref" }
+  ];
+  grid.innerHTML = cards.map((c, i) => `
+    <a class="lcard${c.wide ? " wide" : ""}${c.alert ? " alert" : ""}" href="#${c.id}">
+      <span class="lk"><span>${c.k}</span><b>${i + 1}/7</b></span>
+      <span class="lnum">${c.num}${c.unit ? `<small>${c.unit}</small>` : ""}</span>
+      <p class="ltxt">${c.txt}</p>
+      <div class="lviz chart" data-viz="${c.viz}"></div>
+      <span class="lgo">${L("Read this part", "อ่านส่วนนี้")}</span>
+    </a>`).join("");
+  grid.querySelectorAll(".lnum").forEach(n => observeCount(n));
+
+  // one small chart per card, drawn to the card's width
+  const bar = (svg, x, y, w, h, tok, d = 0, cls = "grow") => { const r = el("rect", { x, y, width: Math.max(2, w), height: h, rx: Math.min(3, h / 2), fill: css(tok), class: cls }, svg); r.style.animationDelay = d + "ms"; return r; };
+  grid.querySelectorAll(".lviz").forEach(box => {
+    const W = box.clientWidth || 220, kind = box.dataset.viz;
+    if (kind === "rules") {
+      box.innerHTML = `<div class="rulechips">${[L("§272 Senate picks PM", "ม.272 ส.ว. เลือกนายกฯ"), L("§133 PM blocks money bills", "ม.133 นายกฯ คุมร่างการเงิน"), L("Court judges ethics", "ศาลตัดสินจริยธรรม"), L("Court dissolves parties", "ศาลยุบพรรค"), L("§256 Senate veto on change", "ม.256 ส.ว. ยับยั้งการแก้")].map(t => `<span>${t}</span>`).join("")}</div>`;
+      return;
+    }
+    if (kind === "cabs") {
+      const max = Math.max(...cabs.map(c => c.d)), H = cabs.length * 15;
+      const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, "aria-hidden": "true" }, box);
+      cabs.forEach((c, i) => {
+        bar(svg, 0, i * 15 + 2, c.d / max * (W - 44), 8, c.t === 65 ? "--fall" : c.live ? "--merged" : "--enacted", i * 90);
+        txt(svg, c.d / max * (W - 44) + 6, i * 15 + 10, fmt(c.d), { class: c.t === 65 ? "strong" : "muted", style: "font-size:10.5px" });
+      });
+      return;
+    }
+    if (kind === "laws") {
+      const H = laws.length * 20, lw = 62;
+      const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, "aria-hidden": "true" }, box);
+      laws.forEach(([lab, [a, n], tok], i) => {
+        const y = i * 20, tw = W - lw - 36;
+        txt(svg, 0, y + 10, lab, { style: "font-size:11px" });
+        bar(svg, lw, y + 3, tw, 8, "--rule", 0, "");
+        bar(svg, lw, y + 3, a / n * tw, 8, tok, i * 120);
+        txt(svg, W, y + 10, (a / n * 100 < 10 ? (a / n * 100).toFixed(1) : Math.round(a / n * 100)) + "%", { class: "strong", "text-anchor": "end", style: "font-size:11px" });
+      });
+      return;
+    }
+    if (kind === "parties") {
+      const svg = el("svg", { width: W, height: 40, viewBox: `0 0 ${W} 40`, "aria-hidden": "true" }, box);
+      const g = nt.gov / chosen * W;
+      bar(svg, 0, 4, g - 1, 14, "--fall", 0);
+      bar(svg, g + 1, 4, W - g - 1, 14, "--merged", 150);
+      txt(svg, 0, 34, `${nt.gov} ${L("into government", "เข้ารัฐบาล")}`, { style: "font-size:11px" });
+      txt(svg, W, 34, `${nt.opp} ${L("opposition", "ฝ่ายค้าน")}`, { "text-anchor": "end", style: "font-size:11px" });
+      return;
+    }
+    if (kind === "pm") {
+      const max = Math.max(...pm.map(p => p.total)) / 1.6, H = pm.length * 24 + 4, lw = 36;
+      const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, "aria-hidden": "true" }, box);
+      const sx = v => lw + v / max * (W - lw - 4);
+      pm.forEach((p, i) => {
+        const y = i * 24 + 2;
+        txt(svg, 0, y + 11, p.year, { class: "muted", style: "font-size:11px" });
+        bar(svg, lw, y + 3, sx(p.others) - lw, 10, "--enacted", i * 150);
+        bar(svg, sx(p.others) + 1, y + 3, sx(p.others + p.key) - sx(p.others) - 1, 10, "--fall", 300 + i * 150);
+        el("line", { x1: sx(p.need), x2: sx(p.need), y1: y - 1, y2: y + 17, stroke: css("--ink"), "stroke-width": 1.5 }, svg);
+      });
+      txt(svg, sx(pm[0].need) + 4, H - 1, L("majority", "เสียงข้างมาก"), { class: "muted", style: "font-size:10px" });
+      return;
+    }
+    if (kind === "absent") {
+      const rows = [[L("Anutin", "อนุทิน"), aPct, "--fall"], [L("Typical Thai MP", "ส.ส. ไทยทั่วไป"), typical, "--enacted"], [L("Typical US rep", "สมาชิกสภาสหรัฐฯ"), 2.4, "--forced"]];
+      const H = rows.length * 18, lw = 92;
+      const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, "aria-hidden": "true" }, box);
+      rows.forEach(([lab, v, tok], i) => {
+        const y = i * 18, tw = W - lw - 34;
+        txt(svg, 0, y + 10, lab, { style: "font-size:11px" });
+        bar(svg, lw, y + 3, v / 100 * tw, 8, tok, i * 120);
+        txt(svg, lw + v / 100 * tw + 5, y + 10, (v < 10 ? v.toFixed(1) : v) + "%", { class: "strong", style: "font-size:11px" });
+      });
+      return;
+    }
+    if (kind === "ref") {
+      const parts = [[21621638, "--enacted", L("Yes", "เห็นชอบ")], [11241653, "--fall", L("No", "ไม่เห็นชอบ")], [3074330, "--forced", ""]];
+      const tot = parts.reduce((a, p) => a + p[0], 0), svg = el("svg", { width: W, height: 40, viewBox: `0 0 ${W} 40`, "aria-hidden": "true" }, box);
+      let x = 0;
+      parts.forEach(([n, tok, lab], i) => {
+        const w = n / tot * W;
+        bar(svg, x + (i ? 1 : 0), 4, w - (i ? 1 : 0) - 1, 14, tok, i * 150);
+        if (lab) txt(svg, i ? x + 2 : 0, 34, `${lab} ${Math.round(n / tot * 100)}%`, { style: "font-size:11px" });
+        x += w;
+      });
+    }
+  });
+}
+
+/* ---------- Unanimity strip ---------- */
+function drawStrip() {
+  const box = document.getElementById("strip");
+  const W = box.clientWidth, narrow = W < 560, labelW = narrow ? 0 : 130, rowH = narrow ? 86 : 64, top = 8;
+  const H = top + CHAMBERS.length * rowH + 28;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Strip plot of vote one-sidedness by chamber" }, box);
+  const x = v => labelW + (v - 0.5) / 0.5 * (W - labelW - 10);
+  [0.5, 0.6, 0.7, 0.8, 0.9, 1].forEach(v => {
+    el("line", { x1: x(v), x2: x(v), y1: top, y2: H - 22, stroke: css("--rule"), "stroke-width": 1 }, svg);
+    txt(svg, x(v), H - 6, Math.round(v * 100) + "%", { class: "muted", "text-anchor": v === 1 ? "end" : "middle" });
+  });
+  // deterministic jitter so the page renders identically every time
+  let seed = 7; const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  CHAMBERS.forEach(([k, name, yrs], i) => {
+    const vals = DATA.unanimity[k] || [], y0 = top + i * rowH, cy = y0 + (narrow ? 52 : rowH / 2);
+    const med = [...vals].sort((a, b) => a - b)[Math.floor(vals.length / 2)];
+    if (narrow) txt(svg, 0, y0 + 16, `${name} · ${yrs} · ${L("median", "ค่ากลาง")} ${(med * 100).toFixed(1)}%`, { class: "strong" });
+    else { txt(svg, 0, cy - 2, name, { class: "strong" }); txt(svg, 0, cy + 14, `${yrs} · ${L("median", "ค่ากลาง")} ${(med * 100).toFixed(1)}%`, { class: "muted", style: "font-size:11px" }); }
+    vals.forEach(v => {
+      const c = el("circle", { cx: x(Math.max(0.5, v)), cy: cy + (rand() - 0.5) * 22, r: 4, fill: css(k.startsWith("วุฒิ") ? "--fall" : "--enacted"), "fill-opacity": 0.55, stroke: css("--bg"), "stroke-width": 1 }, svg);
+      anim(c, "pop", i * 180 + Math.random() * 700);
+      c.addEventListener("pointermove", e => showTip(e, `<b>${name}</b><br>${(v * 100).toFixed(1)}% ${L("chose the same option", "เลือกเหมือนกัน")}`));
+      c.addEventListener("pointerdown", e => showTip(e, `<b>${name}</b><br>${(v * 100).toFixed(1)}% ${L("chose the same option", "เลือกเหมือนกัน")}`));
+      c.addEventListener("pointerleave", hideTip);
+    });
+  });
+}
+
+/* ---------- Absence small multiples ---------- */
+function drawAbsence() {
+  const box = document.getElementById("absence");
+  const W = box.clientWidth, cols = W < 620 ? 1 : 3, gap = 28, cw = (W - gap * (cols - 1)) / cols, ch = 150;
+  const terms = CHAMBERS.slice(0, 3).map(([k, n, y]) => [k, `${n} · ${y}`]);
+  const max = Math.max(...terms.flatMap(([k]) => DATA.absence[k].hist));
+  const rows = Math.ceil(terms.length / cols), cellH = ch + 76;
+  const H = rows * cellH;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Histograms of MP absence rates per House term" }, box);
+  terms.forEach(([k, name], i) => {
+    const a = DATA.absence[k], ox = (i % cols) * (cw + gap), oy = Math.floor(i / cols) * cellH;
+    txt(svg, ox, oy + 14, name, { class: "strong" });
+    txt(svg, ox, oy + 32, L(`median ${Math.round(a.median * 100)}% missed · ${a.over50} MPs missed over half`, `ค่ากลางไม่ได้ลงมติ ${Math.round(a.median * 100)}% · ${a.over50} คนขาดเกินครึ่ง`), { class: "muted", style: "font-size:11.5px" });
+    const base = oy + 44 + ch, bw = cw / 10;
+    el("line", { x1: ox, x2: ox + cw, y1: base, y2: base, stroke: css("--rule"), "stroke-width": 1 }, svg);
+    a.hist.forEach((n, j) => {
+      const h = n / max * ch, bx = ox + j * bw + 1;
+      const r = anim(el("path", { d: roundTop(bx, base, Math.min(24, bw - 2), h), fill: css(j >= 5 ? "--fall" : "--enacted") }, svg), "grow-up", i * 200 + j * 45);
+      hover(r, `<b>${name.split(" ·")[0]}</b><br>${L(`${n} MPs missed ${j * 10}–${j * 10 + 10}% of votes`, `ส.ส. ${n} คน ไม่ได้ลงมติ ${j * 10}–${j * 10 + 10}%`)}`);
+    });
+    [0, 50, 100].forEach(p => txt(svg, ox + p / 100 * cw, base + 16, p + "%", { class: "muted", "text-anchor": p === 0 ? "start" : p === 100 ? "end" : "middle", style: "font-size:11px" }));
+  });
+}
+function roundTop(x, base, w, h) {
+  if (h <= 0) return "";
+  const r = Math.min(4, h, w / 2);
+  return `M${x},${base} V${base - h + r} Q${x},${base - h} ${x + r},${base - h} H${x + w - r} Q${x + w},${base - h} ${x + w},${base - h + r} V${base} Z`;
+}
+
+/* ---------- Prologue events ---------- */
+function drawEvents() {
+  document.getElementById("coup-legend").innerHTML = Object.values(KINDS).map(([l, t]) => `<span><i class="sw" style="background:var(${t})"></i>${l}</span>`).join("");
+  document.getElementById("events").innerHTML = EVENTS.map(e => {
+    if (e[0] === "era") return `<li class="era"><span>${e[1]}</span></li>`;
+    const [date, kind, title, text, inData] = e, [y, m, d] = date.split("-");
+    const [label, tok] = KINDS[kind];
+    return `<li style="--c:var(${tok})"><div class="date"><b>${BE(y)}</b>${d ? +d + " " : ""}${MONTHS[+m - 1]}</div>
+      <div><h4>${title}</h4><p>${text}</p><div class="tags"><span class="chip" style="--c:var(${tok})"><i></i>${label}</span>${inData ? `<span class="chip data">${L("In dataset", "มีในฐานข้อมูล")}</span>` : ""}</div></div></li>`;
+  }).join("");
+}
+
+/* ---------- Prologue: one-line timeline ---------- */
+function drawCoupline() {
+  const box = document.getElementById("coupline");
+  const W = Math.max(760, box.clientWidth);
+  const t0 = new Date("2014-01-01"), t1 = new Date("2027-01-01"), x = t => (t - t0) / (t1 - t0) * W;
+  // greedy label rows so no two labels overlap
+  const rows = [], placed = MOMENTS.map(([date, kind, label]) => {
+    const cx = x(new Date(date)), w = measure(label, 500, 12.5) + 6;
+    const end = cx + w > W, x0 = end ? cx - w : cx;
+    let r = rows.findIndex(right => right < x0);
+    if (r < 0) { r = rows.length; rows.push(0); }
+    rows[r] = x0 + w + 8;
+    return { cx, x0, end, r, date, kind, label };
+  });
+  const rowH = 22, bandY = 26 + rows.length * rowH + 18, H = bandY + 64;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Timeline of Thai politics from the 2014 coup to 2026" }, box);
+  for (let y = 2014; y <= 2026; y++) {
+    const xx = x(new Date(`${y}-01-01`));
+    el("line", { x1: xx, x2: xx, y1: bandY - 6, y2: bandY + 26, stroke: css("--rule"), "stroke-width": 1 }, svg);
+    txt(svg, xx + 3, H - 4, BE(y), { class: "muted", style: "font-size:11px" });
+  }
+  // who held power
+  el("rect", { x: 0, y: bandY, width: W, height: 20, rx: 4, fill: css("--panel") }, svg);
+  RULERS.forEach(([s, e, short, full, tok], i) => {
+    const x0 = x(new Date(s)), x1 = x(e ? new Date(e) : TODAY);
+    const r = el("rect", { x: x0 + 1, y: bandY, width: x1 - x0 - 2, height: 20, rx: 4, fill: css(tok), class: "grow", style: `animation-delay:${i * 150}ms` }, svg);
+    hover(r, `<b>${full}</b><br>${fmtDate(s)} ${L("to", "ถึง")} ${e ? fmtDate(e) : L("today", "วันนี้")} · ${fmt(days(s, e))} ${L("days", "วัน")}`);
+    const fits = measure(short, 600, 12) + 10 < x1 - x0;
+    if (fits) txt(svg, x0 + 6, bandY + 14, short, { style: "font-size:12px;font-weight:600;fill:#ffffff" });
+    else txt(svg, (x0 + x1) / 2, bandY + 36, short, { class: "strong", "text-anchor": "middle", style: "font-size:11.5px" });
+  });
+  // key moments, with a leader line down to the band
+  placed.forEach((p, idx) => {
+    const d = 500 + idx * 140;
+    const ly = 26 + p.r * rowH, tok = KINDS[p.kind][1];
+    anim(el("line", { x1: p.cx, x2: p.cx, y1: ly + 4, y2: bandY - 2, stroke: css("--rule"), "stroke-width": 1 }, svg), "fade", d);
+    const dot = anim(el("circle", { cx: p.cx, cy: ly, r: 5, fill: css(tok), stroke: css("--bg"), "stroke-width": 2 }, svg), "pop", d);
+    hover(dot, `<b>${p.label}</b><br>${fmtDate(p.date)} · ${KINDS[p.kind][0]}`);
+    anim(txt(svg, p.end ? p.cx - 10 : p.cx + 10, ly + 4, p.label, { class: p.kind === "court" ? "strong" : "", "text-anchor": p.end ? "end" : "start", style: "font-size:12.5px" }), "fade", d + 80);
+  });
+}
+
+/* ---------- Absence benchmarks ---------- */
+function drawBench() {
+  const box = document.getElementById("bench");
+  const A = DATA.anutin.terms, ab = DATA.absence;
+  const tot = Object.values(A).reduce((s, t) => [s[0] + t.missed, s[1] + t.votes], [0, 0]);
+  const rows = [
+    [L("Anutin Charnvirakul, Thailand's prime minister", "อนุทิน ชาญวีรกูล นายกรัฐมนตรีไทย"), tot[0] / tot[1], "--fall", L(`${tot[0]} of ${tot[1]} House votes, 2019–2026`, `${tot[0]} จาก ${tot[1]} ครั้ง ปี 2562–2569`)],
+    [L("Thai MPs while serving as ministers, 26th House", "ส.ส. ไทยระหว่างเป็นรัฐมนตรี สภาชุดที่ 26"), A["สภาผู้แทนราษฎร-26"].ministerRate, "--enacted", L("All votes cast while holding a cabinet post", "ทุกการลงมติระหว่างดำรงตำแหน่งรัฐมนตรี")],
+    [L("Typical Thai MP, 25th House (2019–23)", "ส.ส. ไทยทั่วไป สภาชุดที่ 25 (2562–66)"), ab["สภาผู้แทนราษฎร-25"].median, "--enacted", L("Median MP, 82 recorded votes", "ค่ากลางของ ส.ส. จาก 82 ครั้งที่มีบันทึก")],
+    [L("India, average MP, Lok Sabha (2019–24)", "อินเดีย ส.ส. โดยเฉลี่ย โลกสภา (2562–67)"), 0.21, "--forced", L("Sittings missed, not votes. PRS Legislative Research", "นับการเข้าประชุม ไม่ใช่การลงมติ PRS Legislative Research")],
+    [L("Typical Thai MP, 26th House (2023–25)", "ส.ส. ไทยทั่วไป สภาชุดที่ 26 (2566–68)"), ab["สภาผู้แทนราษฎร-26"].median, "--enacted", L("Median MP, 108 recorded votes", "ค่ากลางของ ส.ส. จาก 108 ครั้งที่มีบันทึก")],
+    [L("European Parliament, typical MEP", "รัฐสภายุโรป สมาชิกโดยทั่วไป"), 0.15, "--forced", L("82–87% attendance. Brussels Signal, 2026", "เข้าประชุม 82–87% Brussels Signal, 2569"), [0.13, 0.18]],
+    [L("Typical Thai MP, 27th House (2026–)", "ส.ส. ไทยทั่วไป สภาชุดที่ 27 (2569–)"), ab["สภาผู้แทนราษฎร-27"].median, "--enacted", L("Median MP, only 29 recorded votes so far", "ค่ากลางของ ส.ส. จากเพียง 29 ครั้งที่มีบันทึก")],
+    [L("United States, median House member (2024)", "สหรัฐฯ ค่ากลางสมาชิกสภาผู้แทนฯ (2567)"), 0.024, "--forced", L("Roll-call votes missed. GovTrack", "การลงมติแบบขานชื่อที่ไม่ได้เข้าร่วม GovTrack")]
+  ];
+  const W = box.clientWidth, narrow = W < 620, labelW = narrow ? 0 : 300, rowH = narrow ? 44 : 32;
+  const H = rows.length * rowH + 24;
+  const svg = el("svg", { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Share of votes missed, Thailand compared with other parliaments" }, box);
+  const x = v => labelW + v * (W - labelW - 46);
+  [0, 0.25, 0.5, 0.75, 1].forEach(v => {
+    el("line", { x1: x(v), x2: x(v), y1: 0, y2: H - 20, stroke: css("--rule"), "stroke-width": 1 }, svg);
+    txt(svg, x(v), H - 4, Math.round(v * 100) + "%", { class: "muted", "text-anchor": v === 0 ? "start" : v === 1 ? "end" : "middle" });
+  });
+  rows.forEach(([lab, v, tok, note, range], i) => {
+    const y = i * rowH, by = narrow ? y + 20 : y + 9;
+    txt(svg, 0, narrow ? y + 13 : y + 20, lab, { class: tok === "--fall" ? "strong" : "" });
+    const r = el("rect", { x: x(0), y: by, width: Math.max(3, x(v) - x(0)), height: 14, rx: 3, fill: css(tok), class: "grow", style: `animation-delay:${i * 60}ms` }, svg);
+    if (range) anim(el("line", { x1: x(range[0]), x2: x(range[1]), y1: by + 7, y2: by + 7, stroke: css("--ink-3"), "stroke-width": 2, "stroke-linecap": "round" }, svg), "fade", 800);
+    hover(r, `<b>${lab}</b><br>${L(`${(v * 100).toFixed(1)}% missed`, `ไม่ได้ลงมติ ${(v * 100).toFixed(1)}%`)}<br>${note}`);
+    txt(svg, x(range ? range[1] : v) + 8, by + 12, (v < 0.1 ? (v * 100).toFixed(1) : Math.round(v * 100)) + "%", { class: "strong" });
+  });
+  table("bench-table", [L("Group", "กลุ่ม"), L("Missed", "ไม่ได้ลงมติ"), L("Measure", "วิธีวัด")], rows.map(([l, v, , n]) => [l, (v * 100).toFixed(1) + "%", n]));
+}
+
+const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Live figures from the reader's clock ---------- */
+function ymd(from, to = new Date()) {
+  const a = new Date(from);
+  let y = to.getFullYear() - a.getFullYear(), m = to.getMonth() - a.getMonth(), d = to.getDate() - a.getDate();
+  if (d < 0) { m--; d += new Date(to.getFullYear(), to.getMonth(), 0).getDate(); }
+  if (m < 0) { y--; m += 12; }
+  return { y, m, d };
+}
+const TH_UNIT = { year: "ปี", month: "เดือน", day: "วัน" };
+const plural = (n, w) => LANG === "th" ? `${n} ${TH_UNIT[w]}` : `${n} ${w}${n === 1 ? "" : "s"}`;
+function spanText(from) {
+  const { y, m } = ymd(from);
+  return [y && plural(y, "year"), m && plural(m, "month")].filter(Boolean).join(L(" and ", " ")) || L("less than a month", "ไม่ถึงหนึ่งเดือน");
+}
+function agoText(from) {
+  const { y, m, d } = ymd(from);
+  return y ? spanText(from) : m ? [plural(m, "month"), d && plural(d, "day")].filter(Boolean).join(L(" and ", " ")) : plural(d, "day");
+}
+function drawLive() {
+  const now = new Date();
+  document.querySelectorAll("[data-today]").forEach(e => e.textContent = now.toLocaleDateString(L("en-GB", "th-TH"), { day: "numeric", month: "long", year: "numeric" }));
+  document.querySelectorAll("[data-span]").forEach(e => e.textContent = spanText(e.dataset.span));
+  document.querySelectorAll("[data-ago]").forEach(e => e.textContent = agoText(e.dataset.ago));
+  document.querySelectorAll("[data-day]").forEach(e => e.textContent = fmt(Math.floor((now - new Date(e.dataset.day)) / 864e5) + 1));
+  document.querySelectorAll("[data-every]").forEach(e => {
+    const months = ((now - new Date(e.dataset.every)) / 864e5 / 30.44) / +e.dataset.n;
+    e.textContent = plural(Math.round(months), "month");
+  });
+}
+
+/* Big numbers count up the first time they scroll into view. The final value is in the HTML, so the page reads correctly without this. */
+let observeCount = () => {};
+function countUp() {
+  if (still || !("IntersectionObserver" in window)) return;
+  const run = el => {
+    const node = el.firstChild;
+    if (!node || node.nodeType !== 3) return;
+    el._final = el._final || node.textContent;
+    const m = el._final.match(/^([~]?)([\d,.]+)(.*)$/);
+    if (!m) return;
+    const target = parseFloat(m[2].replace(/,/g, "")), dec = (m[2].split(".")[1] || "").length, t0 = performance.now();
+    cancelAnimationFrame(el._raf);
+    const step = t => {
+      const k = Math.min(1, (t - t0) / 900), v = target * (1 - Math.pow(1 - k, 3));
+      node.textContent = m[1] + v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec }) + m[3];
+      if (k < 1) el._raf = requestAnimationFrame(step);
+    };
+    el._raf = requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.intersectionRatio >= 0.6) { if (!en.target._shown) { en.target._shown = true; run(en.target); } }
+    else if (!en.isIntersecting) en.target._shown = false;
+  }), { threshold: [0, 0.6] });
+  observeCount = el => io.observe(el);
+  document.querySelectorAll(".stat .num, .lcard .lnum").forEach(observeCount);
+}
+
+/* Scroll trigger: each chart plays when it comes into view, rewinds once it is fully out of view,
+   and plays again when the reader scrolls back to it. */
+function play(ch) {
+  ch.classList.remove("done", "reset");
+  void ch.offsetWidth; // restart the CSS animations from the first frame
+  ch.classList.remove("armed");
+  ch.dataset.played = "1";
+  clearTimeout(ch._done); ch._done = setTimeout(() => ch.classList.add("done"), 3200);
+}
+function rewind(ch) { clearTimeout(ch._done); ch.classList.remove("done"); ch.classList.add("reset", "armed"); }
+const replay = play;
+function armCharts() {
+  const charts = document.querySelectorAll(".chart");
+  if (still || !("IntersectionObserver" in window)) { charts.forEach(c => c.classList.add("done")); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.intersectionRatio >= 0.2) { if (e.target.classList.contains("armed")) play(e.target); }
+    else if (!e.isIntersecting && e.target.dataset.played) rewind(e.target);
+  }), { threshold: [0, 0.2] });
+  charts.forEach(c => { c.classList.add("armed"); io.observe(c); });
+}
+
+function drawAll() {
+  for (const id of ["coupline", "referendum", "bench", "ministers", "dots", "mpbar", "pmvote", "strip", "absence"]) document.getElementById(id).replaceChildren();
+  drawLearn(); drawWon(); drawEvents(); drawCoupline(); drawReferendum(); drawBench(); cabTable(); drawMinisters(); drawDots(); drawMpBar(); drawNetwork(); drawPmVote(); drawStrip(); drawAbsence();
+}
+function setLang(lang, redraw) {
+  LANG = lang === "th" ? "th" : "en";
+  document.documentElement.dataset.lang = LANG;
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.setLang === LANG)));
+  try { localStorage.setItem("lang", LANG); } catch (e) {}
+  defineText();
+  drawLive();
+  if (redraw) { hideTip(); drawAll(); document.querySelectorAll(".chart").forEach(c => c.classList.add("done")); }
+}
+document.querySelectorAll("[data-set-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.setLang, true)));
+let savedLang = null;
+try { savedLang = localStorage.getItem("lang"); } catch (e) {}
+setLang(location.hash === "#th" ? "th" : location.hash === "#en" ? "en" : savedLang || ((navigator.language || "").toLowerCase().startsWith("th") ? "th" : "en"), false);
+drawAll();
+armCharts();
+countUp();
+let lastW = innerWidth, rt;
+addEventListener("resize", () => { if (innerWidth === lastW) return; lastW = innerWidth; clearTimeout(rt); rt = setTimeout(drawAll, 150); });
+document.fonts && document.fonts.ready.then(drawAll);
+</script>

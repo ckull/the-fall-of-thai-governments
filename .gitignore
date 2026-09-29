@@ -1,0 +1,10 @@
+# build output (Cloudflare builds it)
+dist/
+__pycache__/
+.DS_Store
+
+# old drafts: they contain wording removed from the published story; never commit them
+story_template_*.html
+story.html
+body_bilingual.html
+fall-of-thai-governments.html
