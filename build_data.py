@@ -148,7 +148,7 @@ import base64, os
 out["logos"] = {f[:-4]: "data:image/png;base64," + base64.b64encode(open("data/logos/" + f, "rb").read()).decode()
                 for f in sorted(os.listdir("data/logos")) if f.endswith(".png")}
 open("data/story.json", "w").write(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
-print({k: (v if k not in ("bills", "unanimity") else len(v)) for k, v in out.items()})
+print("story data:", {k: len(v) if hasattr(v, "__len__") else v for k, v in out.items() if k != "logos"}, "| logos:", len(out.get("logos", {})))
 # embed into the story page
 tpl = open("story_template.html").read()
 open("fall-of-thai-governments.html", "w").write(tpl.replace("/*DATA*/null", json.dumps(out, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")))
