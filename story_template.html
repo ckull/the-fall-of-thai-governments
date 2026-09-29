@@ -1118,27 +1118,49 @@ function netTotals(period) {
   return t;
 }
 function layoutNetwork(W, H) {
+  // phones get a tall canvas and smaller circles and forces; desktop keeps the wide layout
+  const narrow = W < 560, k = narrow ? 0.6 : 1;
   const all = netEdges("all"), ids = [...new Set(all.flatMap(e => [e.a, e.b]))];
-  const nodes = ids.map((id, i) => ({ id, r: Math.min(36, 11 + Math.sqrt(DATA.network.members[id] || 1) * 1.3), x: W / 2 + Math.cos(i * 2.4) * 120, y: H / 2 + Math.sin(i * 2.4) * 120 }));
+  const nodes = ids.map((id, i) => ({
+    id,
+    r: narrow ? Math.min(22, 8 + Math.sqrt(DATA.network.members[id] || 1) * 0.85) : Math.min(36, 11 + Math.sqrt(DATA.network.members[id] || 1) * 1.3),
+    x: W / 2 + Math.cos(i * 2.4) * 120 * k, y: H / 2 + Math.sin(i * 2.4) * 120 * k * (narrow ? 2 : 1)
+  }));
   const links = all.map(e => ({ source: e.a, target: e.b, n: e.n }));
   const sim = d3.forceSimulation(nodes)
-    .force("link", d3.forceLink(links).id(d => d.id).distance(d => 120 + 40 / Math.sqrt(d.n)).strength(0.25))
-    .force("charge", d3.forceManyBody().strength(-760))
-    .force("collide", d3.forceCollide(d => d.r + 30))
-    .force("x", d3.forceX(W / 2).strength(0.06)).force("y", d3.forceY(H / 2).strength(0.09))
+    .force("link", d3.forceLink(links).id(d => d.id).distance(d => (120 + 40 / Math.sqrt(d.n)) * k).strength(0.25))
+    .force("charge", d3.forceManyBody().strength(-760 * k))
+    .force("collide", d3.forceCollide(d => d.r + 30 * k))
+    .force("x", d3.forceX(W / 2).strength(narrow ? 0.12 : 0.06))
+    .force("y", d3.forceY(H / 2).strength(narrow ? 0.02 : 0.09))
     .stop();
   for (let i = 0; i < 500; i++) sim.tick();
   // fit into the box, leaving room for labels
-  const pad = 70, xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
+  const padX = narrow ? 30 : 70, padY = 40, xs = nodes.map(n => n.x), ys = nodes.map(n => n.y);
   const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
-  nodes.forEach(n => { n.x = pad + (n.x - x0) / (x1 - x0 || 1) * (W - 2 * pad); n.y = 40 + (n.y - y0) / (y1 - y0 || 1) * (H - 80); });
+  nodes.forEach(n => {
+    n.tx = padX + (n.x - x0) / (x1 - x0 || 1) * (W - 2 * padX);
+    n.ty = padY + (n.y - y0) / (y1 - y0 || 1) * (H - 2 * padY);
+    n.x = n.tx; n.y = n.ty;
+  });
+  // final spacing pass on the real screen: keep circles and their labels from overlapping
+  const gap = narrow ? 22 : 22; // room for the label under each circle
+  const relax = d3.forceSimulation(nodes)
+    .force("x", d3.forceX(d => d.tx).strength(0.25))
+    .force("y", d3.forceY(d => d.ty).strength(0.25))
+    .force("collide", d3.forceCollide(d => d.r + gap).iterations(3))
+    .stop();
+  for (let i = 0; i < 240; i++) {
+    relax.tick();
+    nodes.forEach(n => { n.x = Math.max(padX, Math.min(W - padX, n.x)); n.y = Math.max(padY, Math.min(H - padY, n.y)); });
+  }
   return Object.fromEntries(nodes.map(n => [n.id, n]));
 }
 let netAnim = null;
 function drawNetwork() {
   const box = document.getElementById("network");
   box.replaceChildren();
-  const W = box.clientWidth, H = W < 560 ? 600 : 680;
+  const W = box.clientWidth, narrowNet = W < 560, H = narrowNet ? Math.max(760, Math.round(W * 2.1)) : 680;
   if (!netLayout || netLayout.W !== W) netLayout = { W, pos: layoutNetwork(W, H) };
   const pos = netLayout.pos, edges = netEdges(netPeriod), sides = DATA.network.sides[netPeriod] || {};
   const active = new Set(edges.flatMap(e => [e.a, e.b]));
@@ -1175,7 +1197,8 @@ function drawNetwork() {
       const im = el("image", { href: logo(n.id), x: n.x - s / 2, y: n.y - s / 2, width: s, height: s, "clip-path": `url(#${cid})`, "pointer-events": "none", opacity: on ? 1 : 0.18, preserveAspectRatio: "xMidYMid meet" }, gN);
       anim(im, "pop", (Object.keys(nodeEls).length + 1) * 25);
     }
-    const lab = txt(gN, n.x, n.y + n.r + 14, pname(n.id), { class: "node-label", "text-anchor": "middle", style: `font-size:${n.r > 16 ? 12.5 : 11}px`, opacity: on ? 1 : 0.25 });
+    const full = pname(n.id), short = narrowNet && full.length > 14 ? full.slice(0, 13) + "…" : full;
+    const lab = txt(gN, n.x, n.y + n.r + (narrowNet ? 12 : 14), short, { class: "node-label", "text-anchor": "middle", style: `font-size:${narrowNet ? 10.5 : n.r > 16 ? 12.5 : 11}px`, opacity: on ? 1 : 0.25 });
     const ins = edges.filter(e => e.b === n.id).reduce((s, e) => s + e.n, 0), outs = edges.filter(e => e.a === n.id).reduce((s, e) => s + e.n, 0);
     const sideTxt = sd === "gov" ? L("In government", "อยู่ในรัฐบาล") : sd === "opp" ? L("In opposition", "อยู่ฝ่ายค้าน") : L("Side not recorded for this period", "ไม่มีข้อมูลฝั่งในช่วงนี้");
     hover(c, `${logoImg(n.id, 28)}<b>${pname(n.id)}</b>${L(` <span class="thai">${n.id}</span>`, "")}<br>${L(`${fmt(DATA.network.members[n.id] || 0)} members in the dataset<br>${ins} joined · ${outs} left`, `สมาชิกในฐานข้อมูล ${fmt(DATA.network.members[n.id] || 0)} คน<br>ย้ายเข้า ${ins} · ย้ายออก ${outs}`)}${netPeriod === "all" ? "" : "<br>" + sideTxt}`);
